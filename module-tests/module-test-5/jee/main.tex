@@ -1,0 +1,461 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper, top=15mm, bottom=20mm, left=20mm, right=20mm}
+\usepackage{tzplot}
+\usepackage{amsmath}
+\usepackage[utopia]{mathdesign}
+\usepackage{kinematikz}
+\usepackage{tasks}
+\newcommand{\ans}{\textcolor{red!95}{\textit{\quad Ans.}}}
+\title{Module-Test-5\\(Physics-JEE)}
+
+%\usepackage[italicdiff]{physics}
+\usepackage{physunits}
+\tikzstyle test-paper=[>=latex, thick]
+\tikzset{
+>=latex
+}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+	\item In the figure shown, time of flight and range is
+	\begin{center}
+	\begin{tikzpicture}
+		\tzfn"curve"{-.15*(\x)^2+2}[0:4]
+		\tzline[->](0, 2)(1, 2){$20\mps$}[r]
+		\pic[xshift=3cm] (0, 0) {frame=7cm};
+		\draw[pattern=north east lines](-0.1, 0 ) rectangle (0.1, 2);
+		\tzline[|<->|](-0.5, 0)(-0.5, 2){$20\m$}[midway, left]
+		\tzhXpointat*{curve}{0}(PG)
+		\tzvXpointat*{curve}{0}(PT)
+		\tzline[|<->|]<0, -0.5>(0, 0)(PG){$R$}[midway, below]
+	\end{tikzpicture}
+	\end{center}
+	\begin{tasks}(2)
+		\task $2\s \text{ and } 40\m$\ans
+		\task $1\s \text{ and } 20\m$
+		\task $3\s \text{ and } 60\m$
+		\task None of these
+	\end{tasks}
+	
+	\item A ball is projected upwards from the top of a tower with a velocity $50\mps$ making an angle $30^\circ$ with the horizontal. The height of tower is $70 \m$. After how many seconds from the instant of throwing, will the ball reach the ground. ($g = 10 \mpss$)	
+	\begin{tasks}(2)
+		\task $2\s$
+		\task $5\s$
+		\task $7\s$\ans
+		\task $9\s$
+	\end{tasks}
+	
+	\item Two particles are simultaneously projected in the same vertical plane from the same point with velocities $u$ and $v$ at angles $\alpha$ and $\beta$ with horizontal. Find the time that elapses when their velocities are parallel.	
+	\begin{center}
+	\begin{tikzpicture}
+		\tzfn"curve"{-.25*(\x)^2+1*\x}[0:3]
+		\pic[xshift=2cm] (0, 0) {frame=7cm};
+		\tztangentat[->]{curve}{0.01}[0:1]{$u$}[ar]
+		\tzvXpointat{curve}{0.01}(PG)
+		\tzanglemark[->](1, 0)(0, 0)(PG){$\alpha$}(15pt)
+		\begin{scope}[xshift=0cm]
+			\tzfn"curve"{-.35*(\x)^2+1.5*\x}[0:3]
+			\pic[xshift=2cm] (0, 0) {frame=7cm};
+			\tztangentat[->]{curve}{0.01}[0:1]{$v$}[ar]
+			\tzvXpointat{curve}{0.01}(PG)
+			\tzanglemark[->](1, 0)(0, 0)(PG){$\beta$}(25pt)
+		\end{scope}
+	\end{tikzpicture}
+	\end{center}
+	\begin{tasks}(2)
+		\task $t=\dfrac{uv\cos(\alpha-\beta)}{g(v\sin(\beta)-u\sin(\alpha))}$
+		\task $t=\dfrac{uv\sin(\alpha-\beta)}{g(v\cos(\beta)-u\cos(\alpha))}$\ans
+		\task $t=\dfrac{uv\sin(\alpha-\beta)}{g(v\sin(\beta)-u\sin(\alpha))}$
+		\task $t=\dfrac{uv\cos(\alpha-\beta)}{g(v\cos(\beta)-u\cos(\alpha))}$
+	\end{tasks}
+	
+	\item A body is projected at time $t = 0$ from a certain point on a planet's surface with a certain velocity at a certain angle with the planet's surface (assumed horizontal). The horizontal and vertical displacements $x$ and $y$ (in metre) respectively vary with time $t$ in second as, $x = 10\sqrt{3}t$ and $y = 10t-t^2$. The maximum height attained by the body is
+	\begin{tasks}(2)
+		\task $75\m$
+		\task $100\m$
+		\task $50\m$
+		\task $25\m$\ans
+	\end{tasks}
+	
+	\item A body is thrown vertically upwards in air, when air resistance is taken into account, the time of ascent is $t_1$ and time of descent is $t_2$, then which of the following is true?
+	\begin{tasks}(2)
+		\task $t_1=t_2$
+		\task $t_1<t_2$\ans
+		\task $t_1>t_2$
+		\task $t_1\geq t_2$
+	\end{tasks}
+	
+	\item The acceleration experienced by a moving boat after its engine is cut-off, is given by $a = -kv^3$, where $k$ is a constant. If $v_0$ is the magnitude of velocity at cut-off, then the magnitude of the velocity at time $t$ after the cut-off is
+	\begin{tasks}(2)
+		\task $\dfrac{v_0}{2ktv_0^2}$
+		\task $\dfrac{v_0}{1+2ktv_0^2}$
+		\task $\dfrac{v_0}{\sqrt{1-2kv_0^2}}$
+		\task $\dfrac{v_0}{\sqrt{1+2ktv_0^2}}$\ans
+	\end{tasks}
+	
+	\item A projectile is fired at an angle of $45^\circ$ with the horizontal. Elevation angle of the projectile at its highest point as seen from the point of projection is
+	\begin{tasks}(2)
+		\task $60^\circ$
+		\task $\tan^{-1}(\sqrt{3}/2)$
+		\task $\tan^{-1}(1/2)$\ans
+		\task $45^\circ$
+	\end{tasks}
+	
+	\item A particle moves along the sides $AB$, $BC$, $CD$ of a square of side $25 \m$ with a velocity of $15 \mps$. Its average velocity is
+	\begin{center}
+	\begin{tikzpicture}
+		\tzpath[draw, -->--=0.18, -->--=0.50, -->--=0.84 ](0, 0)(0, 2)(2, 2){$v$}[r](2, 0);
+		\tzpath[draw, dashed](0, 0)(2, 0);
+		\tznode(0, 0){$A$}[l]
+		\tznode(2, 0){$D$}[r]
+		\tznode(0, 2){$B$}[al]
+		\tznode(2, 2){$C$}[ar]
+	\end{tikzpicture}
+	\end{center}
+	\begin{tasks}(2)
+		\task $5\mps$\ans
+		\task $7.5\mps$
+		\task $10\mps$
+		\task $15\mps$
+	\end{tasks}
+	
+	\item A body sliding down on a smooth inclined plane slides down $1/4\textit{th}$ of plane's length in $2 \s$. It will slide down the complete plane in
+	\begin{tasks}(2)
+		\task $4\s$\ans
+		\task $5\s$
+		\task $2\s$
+		\task $3\s$
+	\end{tasks}
+	
+	
+	\item A stone falls freely from rest and the total distance covered by it in the last second of its motion equals the distance covered by it in the first three seconds of its motion. The stone remains in the air for
+	\begin{tasks}(2)
+		\task $6\s$
+		\task $5\s$\ans
+		\task $7\s$
+		\task $4\s$
+	\end{tasks}
+	
+	
+	\item The motor of an electric train can give it an acceleration of $1\mpss$ and brakes can give a negative acceleration of $3 \mpss$. The shortest time in which the train can make a trip between the two stations $1215 \m$ apart is
+	\begin{tasks}(2)
+		\task $113.6\s$
+		\task $56.9\s$\ans
+		\task $60\s$
+		\task $55\s$
+	\end{tasks}
+	
+	
+	\item A point $P$ moves in counter- clockwise direction on a
+circular path as shown in the figure.
+	\begin{center}
+	\begin{tikzpicture}
+		\tzaxes(-1, -0.5)(4, 3){$x$}[r]{$y$}[a]
+		\tzarc[-->--=0.6](0, 0)(0:90:2)
+		\tzline[dashed](0, 0){$20\m$}[sloped](2*cos{45}, 2*sin{45}){$P(x, y)$}[r]
+	\end{tikzpicture}
+	\end{center}
+The movement of $P$ is such that it sweeps out a length $s =t^3 + 5$, where, $s$ is in metre and $t$ is in second.The radius of the path is $20\m$. The acceleration of $P$ when $t = 2\s$ is nearly
+	\begin{tasks}(2)
+		\task $13\mpss$
+		\task $12\mpss$
+		\task $7.2\mpss$
+		\task $14\mpss$\ans
+	\end{tasks}
+	
+	\item An object, moving with a speed of $6.25\mps$, is decelerated at a rate given by $\dfrac{dv}{dt}=-2.5\sqrt{v}$, where $v$ is the instantaneous speed. The time taken by the object, to come to rest, would be
+	\begin{tasks}(2)
+		\task $2\s$\ans
+		\task $4\s$
+		\task $8\s$
+		\task $1\s$
+	\end{tasks}
+	
+	\item The maximum range of a bullet fired from a toy pistol, mounted on a car at rest is $R_0 = 40 \m$. What will be the acute angle of inclination of the pistol for maximum range when the car is moving in the direction of firing with uniform velocity $v = 20 \mps$, on a horizontal surface?($g=10\mpss$)
+	\begin{tasks}(2)
+		\task $30^\circ$
+		\task $60^\circ$\ans
+		\task $75^\circ$
+		\task $45^\circ$
+	\end{tasks}
+	
+	\item A particle is moving with velocity $v = k (Y \hat{i}+ X \hat{j})$, where $k$ is a constant.The general equation for its path is
+	\begin{tasks}(2)
+		\task $Y=X^2 + \texttt{constant}$
+		\task $Y^2=X + \texttt{constant}$
+		\task $XY=\texttt{constant}$
+		\task $Y^2=X^2 + \texttt{constant}$\ans
+	\end{tasks}
+	
+	\item A ball whose kinetic energy is $E$ , is projected at an angle of $45^\circ$ with respect to the horizontal. The kinetic energy of the ball at the highest point of its flight will be
+	\begin{center}
+	\begin{tikzpicture}
+		\tzfn"curve"{-.25*(\x)^2+1*\x}[0:4]
+		\pic[xshift=2cm] (0, 0) {frame=7cm};
+		\tztangentat[->]{curve}{0.01}[0:1]{$v_0$}[ar]
+		\tzvXpointat{curve}{0.01}(PG)
+		\tzvXpointat*{curve}{0}(PT)
+		\tzanglemark[->](1, 0)(0, 0)(PG){$45^\circ$}(15pt)
+	\end{tikzpicture}
+	\end{center}
+	\begin{tasks}(2)
+		\task $E$
+		\task $\dfrac{E}{\sqrt{2}}$
+		\task $\dfrac{E}{2}$\ans
+		\task $\texttt{zero}$
+	\end{tasks}		
+	
+	\item Two fixed frictionless inclined plane making an angle $30^\circ$ and $60^\circ$ with the vertical are as shown in the figure. Two blocks $A$ and $B$ are placed on the two planes. What is the relative vertical acceleration of $A$ with respect to $B$?
+	\begin{center}
+	\begin{tikzpicture}
+		\pic[xshift=4cm] (0, 0) {frame=10cm};
+		\tzcoors(0, 0)(A)(2, 0)(B)(0,2)(C);
+		\tzpolygon(A)(B)(C);
+		\tzanglemark(C)(B)(A){$60^\circ$}(15pt)
+		\begin{scope}[rotate around={-45:(2, 0)}]
+			\draw(0, 0)rectangle(0.5, 0.5)node[midway]{$A$};
+		\end{scope}
+		\tzcoors(4, 0)(A')(8, 0)(B')(4,2)(C');
+		\tzpolygon(A')(B')(C');
+		\tzanglemark(C')(B')(A'){$30^\circ$}(15pt)
+		\begin{scope}[rotate around={-26.5:(8, 0)}]
+			\draw(5, 0)rectangle(5.5, 0.5)node[midway]{$B$};
+		\end{scope}
+	\end{tikzpicture}
+	\end{center}
+	\begin{tasks}(2)
+		\task $4.9 \mpss$ in horizontal direction
+		\task $9.8 \mpss$ in vertical direction
+		\task zero
+		\task $4.9\mpss$ in vertical direction\ans
+	\end{tasks}
+	
+	\item A particle is released from a certain height $H = 400 \m$. Due to the wind, the particle gathers the
+horizontal velocity component $v_x = \alpha y$ where $\alpha = 5 s^{-1}$ and $y$ is the vertical displacement of the particle from the point of release, then the horizontal drift of the particle when it strikes the ground is
+	\begin{tasks}(2)
+		\task $1.67\km$
+		\task $3.67\km$
+		\task $2.67\km$\ans
+		\task $4.67\km$
+	\end{tasks}
+	
+	\item A projectile is given an initial velocity of $(\hat{i} + 2\hat{j}) \mps$ where, $\hat{i}$ is along the ground and $\hat{j}$ is along the vertical. If $g = 10 \mpss$ , the equation of its trajectory is
+	\begin{center}
+	\begin{tikzpicture}
+		\tzfn"curve"{-.25*(\x)^2+1*\x}[0:4]
+		\pic[xshift=2cm] (0, 0) {frame=7cm};
+		\tztangentat[->]{curve}{0.01}[0:1]{$\hat{i}+2\hat{j}$}[ar]
+		\tzvXpointat{curve}{0.01}(PG)
+		\tzanglemark[->](1, 0)(0, 0)(PG){$\theta$}(15pt)
+	\end{tikzpicture}
+	\end{center}
+	\begin{tasks}(2)
+		\task $y=x-5x^2$
+		\task $y=2x-5x^2$\ans
+		\task $4y=2x-5x^2$
+		\task $4y=2x-25x^2$
+	\end{tasks}
+	
+	\item A particle is projected along an inclined plane as shown in figure. What is the speed of the particle when it collides at point $A$ ? ($g = 10 \mpss$)
+	\begin{center}
+	\begin{tikzpicture}
+		\tzfn"curve"{-.25*(\x)^2+1*\x}[0:3]
+		\pic[xshift=2cm] (0, 0) {frame=7cm};
+		\tztangentat[->]{curve}{0.01}[0:1]{$10\mps$}[ar]
+		\tzvXpointat{curve}{0.01}(PG)
+		\tzanglemark[->](1, 0)(0, 0)(PG){$60^\circ$}(15pt)
+		\tzline(0, 0)(4, 1)
+		\tzanglemark[->](1, 0)(0, 0)(4, 1){$30^\circ$}(25pt)
+		\tznode(3, 0.75){$A$}[ar]
+	\end{tikzpicture}
+	\end{center}
+	\begin{tasks}(2)
+		\task $\dfrac{10}{\sqrt{3}}\mps$\ans
+		\task $\dfrac{5}{\sqrt{3}}\mps$
+		\task $\dfrac{15}{\sqrt{3}}\mps$
+		\task $\dfrac{20}{\sqrt{3}}\mps$
+	\end{tasks}
+	
+	\item A particle moves along the parabolic path $x = y^2 + 2y + 2$ in such a way that Y-component of
+velocity vector remains $5 \mps$ during the motion. The magnitude of the acceleration of the particle is
+	\begin{tasks}(2)
+		\task $50\mpss$\ans
+		\task $100\mpss$
+		\task $10\sqrt{2}\mpss$
+		\task $0.1\mpss$
+	\end{tasks}
+	
+	\item A ball is projected from point $A$ with velocity $10 \mps$ perpendicular to the inclined plane as shown in figure. Range of the ball on the inclined plane is
+	\begin{center}
+	\begin{tikzpicture}
+	\def\t{4.25}
+		\tzfn"curve"{-.5*(\x)^2+2.5*\x+0.5}[-0.05:\t + 0.01]
+		\pic[xshift=1.5cm] (0, 0) {frame=7cm};
+		\tztangentat[->]{curve}{\t}[\t:2.8]{$10\mps$}[a]
+		\tzvXpointat*{curve}{\t}(PG){$A$}[r]
+		\tzvXpointat{curve}{\t - 0.01}(PT)
+		\tzline(-1, 0)(PG)
+		\tzanglemark[->](1, 0)(-1, 0)(PG){$30^\circ$}(25pt)
+		\tzrightanglemark(PT)(PG)(-1, 0){$90^\circ$}
+	\end{tikzpicture}
+	\end{center}
+	\begin{tasks}(2)
+		\task $\dfrac{40}{3}\m$\ans
+		\task $\dfrac{20}{3}\m$
+		\task $\dfrac{12}{3}\m$
+		\task $\dfrac{60}{3}\m$
+	\end{tasks}
+	
+	\item In the figure shown, the two projectiles are fired simultaneously. The minimum distance between them during their flight is
+	\begin{center}
+	\begin{tikzpicture}
+		\pic[xshift=2.5cm] (0, 0) {frame=8cm};
+		\tzcoors(0, 0)(O)(1, 1.8)(A)(5, 0)(O')(3.5, 1.5)(A');
+		\tzline[->](O)(A){$20\sqrt{3}\mps$}[a]
+		\tzline[->](O')(A'){$20\mps$}[a]
+		\tzanglemark[->](O')(O)(A){$60^\circ$}(15pt)
+		\tzanglemark[->](A')(O')(O){$30^\circ$}(15pt)
+		\tzline[|<->|]<0, -0.5>(O)(O'){$20\sqrt{3}\m$}[b, midway]
+	\end{tikzpicture}
+	\end{center}
+	\begin{tasks}(2)
+		\task $20\m$
+		\task $10\sqrt{3}$\ans
+		\task $10\m$
+		\task None of these
+	\end{tasks}
+	
+	\item For the given figure, force on the block in the component form is
+	\begin{center}
+	\begin{tikzpicture}
+		\pic[xshift=1cm](0, 0){frame=8cm};
+		\draw(0, 0)rectangle(0.75, 0.75)coordinate(O) node[midway]{$m$};
+		\tzcoor<1, 1>(O)(A){$20\N$}[45]
+		\tzcoor<1, 0>(O)(B)
+		\tzline[->](O)(A)
+		\tzline[dashed](O)(B)
+		\tzanglemark(B)(O)(A){$45^\circ$}(15pt)
+	\end{tikzpicture}
+	\end{center}
+	\begin{tasks}(2)
+		\task $\dfrac{10}{\sqrt{2}}\hat{i}+\dfrac{10}{\sqrt{2}}\hat{j}$
+		\task $20\sqrt{2}\hat{i}+20\sqrt{2}\hat{j}$
+		\task $\dfrac{20}{\sqrt{2}}\hat{i}+\dfrac{20}{\sqrt{2}}\hat{j}$\ans
+		\task $10\sqrt{2}\hat{i}+10\sqrt{2}\hat{j}$\ans
+	\end{tasks}
+	
+	\item For the given figure, acceleration of the block of mass $m$ is
+	\begin{center}
+	\begin{tikzpicture}
+		\pic[xshift=0cm](0, 0){frame=8cm};
+		\draw[xshift=-2cm](0, 0)rectangle(0.75, 0.75)coordinate(O') node[midway]{$m$};
+		\draw(0, 0)rectangle(0.75, 0.75)coordinate(O) node[midway]{$m$};
+		\tzcoor*<0, -0.75*0.5>(O')(O'M)
+		\tzcoor*<-0.75, -0.75*0.5>(O)(OM)
+		\tzline(O'M)(OM)
+		\tzcoor*<0, -0.74*0.5>(O)(OMR)
+		\tzline+[->](OMR)(1, 0){$F=32m$}[r]
+	\end{tikzpicture}
+	\end{center}
+	\begin{tasks}(2)
+		\task $4$
+		\task $8$
+		\task $16$\ans
+		\task $32$
+	\end{tasks}
+	
+	\item For the given figure, tension in the string connecting the blocks of masses $m$ is
+	\begin{center}
+	\begin{tikzpicture}
+		\pic[xshift=0cm](0, 0){frame=8cm};
+		\draw[xshift=-2cm](0, 0)rectangle(0.75, 0.75)coordinate(O') node[midway]{$m$};
+		\draw(0, 0)rectangle(0.75, 0.75)coordinate(O) node[midway]{$m$};
+		\tzcoor*<0, -0.75*0.5>(O')(O'M)
+		\tzcoor*<-0.75, -0.75*0.5>(O)(OM)
+		\tzline(O'M)(OM)
+		\tzcoor*<0, -0.74*0.5>(O)(OMR)
+		\tzline+[->](OMR)(1, 0){$F=32m$}[r]
+	\end{tikzpicture}
+	\end{center}
+	\begin{tasks}(2)
+		\task $4m$
+		\task $8m$
+		\task $16m$\ans
+		\task $32m$
+	\end{tasks}
+
+
+	\item For the given figure, the acceleration of the block along the inclined plane is
+	\begin{center}
+	\begin{tikzpicture}
+		\pic[xshift=1cm] (0, 0) {frame=8cm};
+		\tzcoors(0, 0)(A)(3, 0)(B)(0,3)(C);
+		\tzpolygon(A)(B)(C);
+		\tzanglemark(C)(B)(A){$60^\circ$}(15pt)
+		\begin{scope}[rotate around={-45:(B)}]
+			\draw(0, 0)rectangle(0.5, 0.5)node[midway]{$A$};
+			\tzline+[->](0.5, 0.25)(1, 0){$a$}[r]
+		\end{scope}
+	\end{tikzpicture}
+	\end{center}
+	\begin{tasks}(2)
+		\task $g\cos60^\circ$
+		\task $g\sin60^\circ$\ans
+		\task $g\tan60^\circ$
+		\task None of these
+	\end{tasks}
+	
+	\item Three forces $\vec{F}_1$, $\vec{F}_2$ and $\vec{F}_3$ are acting on a particle of mass $m$ and vector sum of all these forces is zero. Then the acceleration of the particle is
+	\begin{center}
+	\begin{tikzpicture}
+		\tzdot*(0, 0){$m$}[r](5pt)
+		\tzline[->](0, 0)(1, 1){$\vec{F}_1$}[a]
+		\tzline[->](0, 0)(-1, 1){$\vec{F}_2$}[al]
+		\tzline[->](0, 0)(-1, -1){$\vec{F}_3$}[b]
+	\end{tikzpicture}
+	\end{center}
+	\begin{tasks}(2)
+		\task zero\ans
+		\task Non-zero
+		\task Can't say anything
+		\task None of these
+	\end{tasks}
+	
+	\item For the given figure, acceleration of the block of mass $m$ is
+	\begin{center}
+	\begin{tikzpicture}
+		\pic[xshift=-0.5cm](0, 0){frame=8cm};
+		\draw[xshift=-2cm](0, 0)rectangle(0.75, 0.75)coordinate(O') node[midway]{$m$};
+		\draw(0, 0)rectangle(0.75, 0.75)coordinate(O) node[midway]{$m$};
+		\tzcoor*<0, -0.75*0.5>(O')(O'M)
+		\tzcoor*<-0.75, -0.75*0.5>(O)(OM)
+		\tzline(O'M)(OM)
+		\tzcoor*<0, -0.74*0.5>(O)(OMR)
+		\tzline+[->](OMR)(1, 0){$F=32m$}[r]
+		\tzcoor*<-0.75, -0.74*0.5>(O')(O'MR)
+		\tzline+[->](O'MR)(-1, 0){$F=8m$}[l]
+	\end{tikzpicture}
+	\end{center}
+	\begin{tasks}(2)
+		\task $4$
+		\task $8$
+		\task $12$\ans
+		\task $16$
+	\end{tasks}
+	
+	\item A particle is fired horizontally from an inclined plane of inclination $30^\circ$ with horizontal with speed $50 \mps$. If $g = 10\mpss$, the range measured along the incline is
+	\begin{tasks}(2)
+		\task $500\m$
+		\task $\dfrac{1000}{3}\m$\ans
+		\task $200\sqrt{2}\m$
+		\task $100\sqrt{3}\m$
+	\end{tasks}
+	
+\end{enumerate}
+
+
+\end{document}

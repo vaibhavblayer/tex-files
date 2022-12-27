@@ -1,0 +1,413 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper, top=15mm, bottom=20mm, left=20mm, right=20mm}
+\usepackage{tzplot}
+\usepackage{amsmath}
+\usepackage[utopia]{mathdesign}
+\usepackage{kinematikz}
+\usepackage{tasks}
+\newcommand{\ans}{\textcolor{red!95}{\textit{\quad Ans.}}}
+\title{Module-Test-6\\(Physics-NEET)}
+
+%\usepackage[italicdiff]{physics}
+\usepackage{physunits}
+\tikzstyle test-paper=[>=latex, thick]
+\tikzset{
+>=latex
+}
+\tikzstyle{block}=[rectangle,draw, thick, minimum size=8mm, node distance=1.8cm]
+\tikzstyle{pulley}=[circle,draw, thick, minimum size=10mm, node distance=1.8cm]
+
+\tikzstyle{sblock}=[rectangle,draw, thick, minimum size=8mm, node distance=1.8cm]
+\tikzstyle{spulley}=[circle,draw, thick, minimum size=8mm, node distance=1.8cm]
+
+\tikzstyle{lblock}=[rectangle,draw, thick, minimum size=12mm, node distance=1.8cm]
+\tikzstyle{lpulley}=[circle,draw, thick, minimum size=12mm, node distance=2cm]
+
+\tikzstyle{hblock}=[rectangle,draw, thick, minimum height=12mm, minimum width=20mm, node distance=1.8cm]
+\tikzstyle{Hblock}=[rectangle,draw, thick, minimum height=12mm, minimum width=24mm, node distance=1.8cm]
+\tikzstyle{lift}=[rectangle,draw, thick, minimum height=60mm, minimum width=50mm, node distance=1.8cm]
+
+\tikzstyle{Bpulley}=[circle,draw, thick, minimum size=20mm, node distance=1.8cm]
+
+\tikzstyle{plank}=[rectangle,draw, thick, minimum height=8mm, minimum width=50mm, node distance=1.8cm]
+
+% 1. Laws of motion (1 to 21)
+% 2. Projectile Motion (22 to 27)
+% 3. Kinematics (28 to 30) 
+
+\begin{document}
+\maketitle
+
+\pagebreak
+
+\begin{enumerate}
+\item[33.] In the arrangement shown in figure, the ratio of tensions in the strings attached with $4 \kg$ block and that with $1 \kg$ block is
+\begin{center}
+\begin{tikzpicture}
+\tzcoor(0, 0)(O)
+	\pic[yshift=10mm,rotate=180] (hinge){frame=2.5cm};
+	\node[pulley] (pulley1) at (O){};
+	\node[block] (box1) [below of=pulley1, xshift=-5mm] {$4\kg$};
+	\node[block] (box2) [below of=pulley1, xshift=5mm, yshift=-5mm] {$3\kg$};
+	\node[block] (box3) [below of=box2]{$1\kg$};
+	\tzline(box2.south)(box3.north)
+	\tzdot*(pulley1.center)
+	\tzline(hinge-center)(pulley1.center)
+	\tzline(pulley1.west)(box1.north)
+	\tzline(pulley1.east)(box2.north)
+\end{tikzpicture}
+\end{center} 
+\begin{tasks}(2)
+	\task $2:1$
+	\task $4:1$\ans
+	\task $1:2$
+	\task $1:4$
+\end{tasks}
+
+\item[34.] Problems of non-intertial frames can be solved only with the concept of pseudo force.
+\begin{tasks}(1)
+	\task Above statement is wrong\ans
+	\task Above statement is right
+	\task Can't say anything
+	\task Above statement is right for some cases and wrong for some cases
+\end{tasks}
+
+\item[35.] A particle is dropped from a height $h$. Another particle which is initially at a horizontal distance $d$ from the first is simultaneously projected with a horizontal velocity u and the two particles just collide on the ground. Then   
+\begin{tasks}(2)
+	\task $d^2=\dfrac{u^2h}{2h}$
+	\task $d^2=\dfrac{2u^2h}{g}$\ans
+	\task $d=h$
+	\task $gd^2=u^2h$
+\end{tasks}
+
+\end{enumerate}
+
+\begin{center}
+\textbf{Section-B}
+\end{center}
+
+\begin{enumerate}
+\item The acceleration of the $2 \kg$ block, if the free end of string is
+pulled with a force of $20 \N$ as shown, is
+\begin{center}
+\begin{tikzpicture}
+	\pic[yshift=10mm,rotate=180] (topsurface){frame=2.5cm};
+	\node[Bpulley, yshift=-20mm] (pulley1) at (topsurface-center){};
+	\node[pulley, xshift=-5mm] (pulley2) [below of=pulley1]{};
+	\tzline(pulley1.west)(pulley2.west)
+	\tzline(pulley1.center)(pulley2.east)
+	\tzline(pulley1.center)(topsurface-center)
+	\tzdot*(pulley1.center)
+	\tzdot*(pulley2.center)
+	\tzline+[->](pulley1.east)(0, -2){$F=20\N$}[b]
+	\node[block] (block1) [below of=pulley2]{$2\kg$};
+	\tzline(pulley2.center)(block1.north)
+\end{tikzpicture}
+\end{center}
+\begin{tasks}(2)
+	\task zero
+	\task $10\mpss$ upward\ans
+	\task $5\mpss$ upward
+	\task $5\mpss$ downward
+\end{tasks}
+
+\item Two bodies of masses $m_1$ and $m_2$ are connected by a light string which passes over a frictionless massless pulley. If
+the pulley is moving upward with uniform acceleration $g/2$
+then tension in the string will be
+\begin{tasks}(2)
+	\task $\dfrac{3m_1m_2}{m_1+m_2}g$\ans
+	\task $\dfrac{m_1+m_2}{4m_1m_2}g$
+	\task $\dfrac{2m_1m_2}{m_1+m_2}g$
+	\task $\dfrac{m_1m_2}{m_1+m_2}g$
+\end{tasks}
+
+
+\item Consider the situation shown in figure. Both the pulleys $2\kg$ and the string are light and all the surfaces are smooth. The acceleration of $1 \kg$ block is
+\begin{center}
+\begin{tikzpicture}
+\def\ph{0.6}%pulley-height
+	\fill[pattern=north east lines](0, 0)--(8, 0)--(8, -3)--(7.75, -3)--(7.75, -0.25)--(0, -0.25)--cycle;
+	\draw[thick](0, 0)--(8, 0)--(8, -3);
+	\node[pulley] (pulley1) at (4, \ph){};
+	\node[pulley] (pulley2) at (8+\ph*cos{45}, \ph){};
+	\tzdot*(pulley1.center)
+	\node[block, scale=1.25] (block1) at (1, 0.5){$2\kg$};
+	\tzline(pulley1.center)(block1.10)
+	\tzline(pulley1.south)(pulley2.south)
+	
+	\tzline(pulley2.center)(8, 0)
+	\tzdot*(pulley2.center)
+	\node[block, scale=1.25] (block2) at (8+\ph*cos{45}+0.5, -2){$1\kg$};
+	\tzline(pulley2.east)(block2.north)
+	\tzline(pulley1.north)(pulley2.north)
+\end{tikzpicture}
+\end{center}
+\begin{tasks}(2)
+	\task $\dfrac{g}{3}\mpss$
+	\task $\dfrac{2g}{3}\mpss$\ans
+	\task $\dfrac{4g}{3}\mpss$
+	\task $\dfrac{6g}{3}\mpss$
+\end{tasks}
+
+
+\item Find the relation between $a_1$, $a_2$ and $a_3$ where $a_1$, $a_2$ and $a_3$ are accelerations of the blocks $1$, $2$ and $3$.
+\begin{center}
+\begin{tikzpicture}
+\pic[yshift=1cm, rotate=180](hinge) {frame=2cm};
+	\node[lpulley] (pulley1) at (0, 0){};
+	\node[pulley] (pulley2)[below of=pulley1, xshift=6mm]{};
+	\node[block] (block1)[below of=pulley1, xshift=-6mm]{$1$};
+	\node[block] (block2)[below of=pulley2, xshift=-5mm]{$2$};
+	\node[block] (block3)[below of=pulley2, xshift=5mm]{$3$};
+	\tzline(hinge-center)(pulley1.center)
+	\tzdot*(pulley1.center)
+	\tzdot*(pulley2.center)
+	
+	\tzline(pulley1.west)(block1.north)
+	\tzline(pulley1.east)(pulley2.center)
+	\tzline(pulley2.west)(block2.north)
+	\tzline(pulley2.east)(block3.north)
+\end{tikzpicture}
+\end{center}
+\begin{tasks}(2)
+	\task $2a_1+a_2+a_3=0$\ans
+	\task $a_1+2a_2+a_3=0$
+	\task $a_1+a_2+2a_3=0$
+	\task $a_1+a_2+a_3=0$
+\end{tasks}
+
+\item In the figure shown, $a_3=6 \mpss$ (downwards) and $a_2=4\mpss$ (upwards). The acceleration of 1 is
+\begin{center}
+\begin{tikzpicture}
+\pic[yshift=1cm, rotate=180](hinge) {frame=2cm};
+	\node[lpulley] (pulley1) at (0, 0){};
+	\node[pulley] (pulley2)[below of=pulley1, xshift=6mm]{};
+	\node[block] (block1)[below of=pulley1, xshift=-6mm]{$1$};
+	\node[block] (block2)[below of=pulley2, xshift=-5mm]{$2$};
+	\node[block] (block3)[below of=pulley2, xshift=5mm]{$3$};
+	\tzline(hinge-center)(pulley1.center)
+	\tzdot*(pulley1.center)
+	\tzdot*(pulley2.center)
+	
+	\tzline(pulley1.west)(block1.north)
+	\tzline(pulley1.east)(pulley2.center)
+	\tzline(pulley2.west)(block2.north)
+	\tzline(pulley2.east)(block3.north)
+\end{tikzpicture}
+\end{center}
+\begin{tasks}(2)
+	\task $1\mpss \text{ downward}$
+	\task $2\mpss \text{ upward}$
+	\task $1\mpss \text{ upward}$\ans
+	\task $2\mpss \text{ downward}$
+\end{tasks}
+
+
+
+
+
+
+
+
+
+
+\item Three blocks of masses $3 \kg$, $2 \kg$ and $1 \kg$ are placed side by side on a smooth surface as shown in figure. A horizontal force of $12 \N$ is applied on $3 \kg$ block. The net force on $2 \kg$ block is
+\begin{center}
+\begin{tikzpicture}
+\tzcoor(0, 0)(O)
+	\pic[yshift=-4.3mm, xshift=5mm] at (O) {frame=7cm};
+	\node[block] (box1) at (O) {$3\kg$};
+	\node[block] (box2) [right of=box1, xshift=-9.7mm] {$2\kg$};
+	\node[block] (box3) [right of=box2, xshift=-9.7mm] {$1\kg$};
+	\tzline+[<-](box1.west)(-1.5, 0){$12\N$}[midway, a]
+\end{tikzpicture}
+\end{center} 
+\begin{tasks}(2)
+	\task $2\N$
+	\task $3\N$
+	\task $4\N$\ans
+	\task $5\N$
+\end{tasks}
+
+\item The surface is frictionless, the ratio between $T_1$ and $T_2$ is
+\begin{center}
+\begin{tikzpicture}
+\pic (surface) {frame=9cm};
+	\node[block, yshift=4mm] (block1) at (surface-center){$12\kg$};
+	\node[block] (block2) [right of=block1]{$15\kg$};
+	\node[block] (block3) [left of=block1]{$3\kg$};
+	\tzline(block3.east)(block1.west){$T_1$}[midway, a]
+	\tzline(block1.east)(block2.west){$T_2$}[midway, a]
+	\tzline[->]"force"(block2.east)([turn]30:2)
+	\tzvXpointat{force}{3}(A)
+	%\tzdot*(A)
+	\tzline+[dashed]"dashedline"(block2.east)(2, 0)
+	\tzvXpointat{dashedline}{3}(B)
+	%\tzdot*(B)
+	\tzanglemark(B)(block2.east)(A){$30^\circ$}(16pt)
+\end{tikzpicture}
+\end{center}	
+\begin{tasks}(2)
+	\task $\sqrt{3}:1$
+	\task $1:\sqrt{3}$
+	\task $1:5$\ans
+	\task $5:1$
+\end{tasks}
+
+
+
+	
+
+\item Find the relation between $a_1$ and $a_2$ .
+\begin{center}
+\begin{tikzpicture}
+	\pic[yshift=10mm,rotate=180] (topsurface){frame=4cm};
+	\node[pulley, yshift=-15mm] (pulley1) at (topsurface-center){};
+	\node[pulley, xshift=5mm] (pulley2) [below of=pulley1] {};
+	\node[pulley, xshift=5mm] (pulley3) [below of=pulley2] {};
+	\node[block, xshift=5mm] (block1) [below of=pulley3] {$2$};
+	\tzline(topsurface-center)(pulley1.center)
+	\tzdots*(pulley1.center) (pulley2.center) (pulley3.center);
+	\tzline(pulley1.east)(pulley2.center)
+	\tzline(pulley2.east)(pulley3.center)
+	\tzline(pulley3.east)(block1.north)
+	\node[plank, yshift=-50mm] (plank1)[below of=pulley1]{$1$};
+	\tzline+(pulley1.west)(0, -5 - 1.4)
+	\tzline+(pulley2.west)(0, -5 + 0.4)
+	\tzline+(pulley3.west)(0, -5 + 2.2)
+\end{tikzpicture}
+\end{center}
+\begin{tasks}(2)
+	\task $a_1+7a_2=0$
+	\task $7a_1+a_2=0$\ans
+	\task $3a_1+a_2=0$
+	\task $a_1+3a_2=0$
+\end{tasks}
+
+
+	
+\item Find the force exerted by $5 \kg$ block on floor of lift, as shown in figure. (Take, $g =10\mpss$)	
+\begin{center}
+\begin{tikzpicture}
+\node[lift] (lift) at (0, 0){};
+\node[Hblock, yshift=6 mm] (block1) at (lift.south){$5\kg$};
+\node[hblock, yshift=6 mm] (block2) at (block1.north){$2\kg$};
+\tzline+[->](3.5, -2.5)(0, 3){$5\mpss$}[a]
+\end{tikzpicture}
+\end{center}
+\begin{tasks}(2)
+	\task $100\N$
+	\task $115\N$
+	\task $105\N$\ans
+	\task $135\N$
+\end{tasks}
+	
+\item In the pulley-block arrangement shown in figure, find relation between $a_A$ , $a_B$ and $a_C$ .
+\begin{center}
+\begin{tikzpicture}
+\tzcoor(0, 0)(O)
+	\pic[yshift=10mm,rotate=180] (hinge){frame=3cm};
+	\node[pulley] (pulley1) at (O){};
+	\node[block] (box1) [below of=pulley1, xshift=-5mm] {$A$};
+	\node[pulley, xshift=5mm, yshift=-10mm] (pulley2) [below of=pulley1]{};
+	\node[block] (box2) [below of=pulley2, xshift=5mm] {$C$};
+	\node[block] (box3) [below of=pulley2, xshift=-5mm, yshift=-5mm]{$B$};
+	\tzline(pulley2.west)(box3.north)
+	\tzline(pulley2.east)(box2.north)
+	\tzdot*(pulley1.center)
+	\tzline(hinge-center)(pulley1.center)
+	\tzline(pulley1.west)(box1.north)
+	\tzline(pulley1.east)(pulley2.center)
+	\tzdot*(pulley2.center)
+\end{tikzpicture}
+\end{center} 
+\begin{tasks}(2)
+	\task $2a_A+a_B+a_C=0$\ans
+	\task $a_A+a_B+a_C=0$
+	\task $a_A+2a_B+a_C=0$
+	\task $a_A+a_B+2a_C=0$
+\end{tasks}
+	
+\item The acceleration of particle varies with time as shown. Then the expression of $v$ as a function of time $t$ is
+\begin{center}
+\begin{tikzpicture}[scale=0.7]
+	\tzaxes(-1, -2.5)(4.5, 3.5){$t(\s)$}{$a(\mpss)$} 
+	\tzLFn(0,-2)(1, 0)[0:2.5]
+	\tzticks{1}{-2}
+\end{tikzpicture}
+\end{center}
+\begin{tasks}(2)
+	\task $v=t^2-2t$\ans
+	\task $v=t^2+2t$
+	\task $v=-t^2+2t$
+	\task $v=-t^2-2t$
+\end{tasks}
+	
+
+
+\item A projectile is projected with speed u at an angle of $60^\circ$ with horizontal from the foot of an inclined plane. If the projectile hits the inclined plane horizontally, the range on inclined plane will be
+\begin{tasks}(2)
+	\task $\dfrac{u^2\sqrt{21}}{2g}$
+	\task $\dfrac{3u^2}{4g}$
+	\task $\dfrac{u^2}{2g}$
+	\task $\dfrac{u^2\sqrt{21}}{8g}$\ans
+\end{tasks}
+            
+            
+\item A particle starts from the origin of coordinates at time $t = 0$ and moves in the $xy$ plane with a constant acceleration $\alpha$ in the $y$-direction. Its equation of motion is $y = \beta x^2$. Its velocity
+component in the $x$-direction is  
+\begin{tasks}(2)
+	\task variable
+	\task $\sqrt{\dfrac{2\alpha}{\beta}}$
+	\task $\dfrac{\alpha}{2\beta}$
+	\task $\sqrt{\dfrac{\alpha}{2\beta}}$\ans
+\end{tasks}          
+         
+
+            
+            
+\item At a height of $15 \m$ from ground velocity of a projectile is $\vec{v} = (10 \hat{i} + 10\hat{j})$. Here, $\hat{j}$ is vertically upwards and $\hat{i}$ is along horizontal direction then ($g = 10 \mpss$)
+\begin{tasks}(1)
+	\task particle was projected at an angle of $45^\circ$ with horizontal
+	\task time of flight of projectile is $4 \s$\ans
+	\task horizontal range of projectile is $100 \m$
+	\task maximum height of projectile from ground is $20 \m$\ans
+\end{tasks}
+
+
+\item The velocity of a particle depends on time $t$ as $v=t-1$, finds the displacement covered by the particle during $t=1$ to $t=3$ seconds.
+    \begin{center}
+        \begin{tikzpicture}[cap=round, scale=0.6]
+            %\tzaxes[->](-1, -1)(5, 5)
+            \draw[->] (-1, 0)--(5, 0)node[right]{$t$};
+            \draw[->] (0, -2)--(0, 4)node[left]{$v$};
+            \draw (0, -1)--(4, 3);
+            \node at (1, 0) [below]{$1$};
+            \node at (3, 0) [below]{$3$};
+            \draw[dashed] (3, 0)--(3, 2);
+            \draw[dashed] (0, 2)node[left]{$2$}--(3, 2);
+        \end{tikzpicture}
+    \end{center}
+
+\begin{tasks}(2)
+	\task $0$
+    \task $2 m$\ans
+    \task $-2 m$
+    \task None of these
+\end{tasks}
+
+\begin{center}
+\begin{tikzpicture}
+\tzline(0, 0)(8, 0)
+\tzline<0, -0.05>(0, 0)(8, 0)
+\end{tikzpicture}
+\end{center}
+
+            
+	
+\end{enumerate}
+
+
+\end{document}
