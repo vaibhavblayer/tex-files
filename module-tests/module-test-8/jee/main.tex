@@ -7,15 +7,25 @@
 \usepackage[utopia]{mathdesign}
 \usepackage{kinematikz}
 \usepackage{tasks}
+%\newcommand{\ans}{\textcolor{red!95}{\textit{\quad}}}
+%\def\ansit#1{\textcolor{red!95}{\quad}}
 \newcommand{\ans}{\textcolor{red!95}{\textit{\quad Ans.}}}
+\def\ansit#1{\textcolor{red!95}{\quad [ #1 ]}}
+
+
 \title{Module-Test-8\\(Physics-JEE)}
 
-%\usepackage[italicdiff]{physics}
 \usepackage{physunits}
 \tikzstyle test-paper=[>=latex, thick]
 \tikzset{
 >=latex
 }
+
+\def\surface#1{
+	\fill[pattern=north east lines](0, 0)--(8, 0)--(8, -3)--(7.75, -3)--(7.75, -0.25)--(0, -0.25)--cycle;
+	\draw[thick](0, 0)--(8, 0)--(8, -3);
+	}
+
 \tikzstyle{block}=[rectangle,draw, thick, minimum size=8mm, node distance=1.8cm]
 \tikzstyle{pulley}=[circle,draw, thick, minimum size=10mm, node distance=1.8cm]
 
@@ -33,564 +43,296 @@
 
 \tikzstyle{plank}=[rectangle,draw, thick, minimum height=8mm, minimum width=50mm, node distance=1.8cm]
 
-% 1. Laws of motion (1 to 21)
-% 2. Projectile Motion (22 to 27)
-% 3. Kinematics (28 to 30) 
+
+
+%friction
+
+% block pushed against a wall -> f_min for the block to be static
+%			      -> f_max for the block to be in motion
+% block is placed on an inclinded plane
+% 
+
 
 \begin{document}
 \maketitle
 
+\begin{center}
+\textbf{Section-A\\(One Options Correct Type)}
+
+\flushleft{This section contains 20 multiple choice questions. Each question has four choices (A), (B), (C) and
+  (D), out of which ONLY ONE option is correct.}
+  
+\rule{\textwidth}{1 pt}
+\end{center}
+
 \begin{enumerate}
-\item The acceleration of the $2 \kg$ block, if the free end of string is
-pulled with a force of $20 \N$ as shown, is
+\item In the figure shown, the frictional coefficient between table and block is $0.2$. Find the ratio of tensions in the right and left strings.
 \begin{center}
 \begin{tikzpicture}
-	\pic[yshift=10mm,rotate=180] (topsurface){frame=2.5cm};
-	\node[Bpulley, yshift=-20mm] (pulley1) at (topsurface-center){};
-	\node[pulley, xshift=-5mm] (pulley2) [below of=pulley1]{};
-	\tzline(pulley1.west)(pulley2.west)
-	\tzline(pulley1.center)(pulley2.east)
-	\tzline(pulley1.center)(topsurface-center)
+\def\ph{1}%pulley-height
+\def\tl{7}%table-length
+	\fill[pattern=north east lines](0, -3)--(0, 0)--(\tl, 0)--(\tl, -3)--(\tl - 0.25, -3)--(\tl - 0.25, -0.25)--(0.25, -0.25)--(0.25, -3)--(0, -3)--cycle;
+	\draw[thick](0, -3)--(0, 0)--(\tl, 0)--(\tl, -3);
+	\node[pulley] (pulley1) at (-\ph, 0){};
+	\node[pulley] (pulley2) at (\tl+\ph, 0){};
 	\tzdot*(pulley1.center)
-	\tzdot*(pulley2.center)
-	\tzline+[->](pulley1.east)(0, -2){$F=20\N$}[b]
-	\node[block] (block1) [below of=pulley2]{$2\kg$};
-	\tzline(pulley2.center)(block1.north)
-\end{tikzpicture}
-\end{center}
-\begin{tasks}(2)
-	\task zero
-	\task $10\mpss$ upward\ans
-	\task $5\mpss$ upward
-	\task $5\mpss$ downward
-\end{tasks}
-
-\item Two bodies of masses $m_1$ and $m_2$ are connected by a light string which passes over a frictionless massless pulley. If
-the pulley is moving upward with uniform acceleration $g/2$
-then tension in the string will be
-\begin{tasks}(2)
-	\task $\dfrac{3m_1m_2}{m_1+m_2}g$\ans
-	\task $\dfrac{m_1+m_2}{4m_1m_2}g$
-	\task $\dfrac{2m_1m_2}{m_1+m_2}g$
-	\task $\dfrac{m_1m_2}{m_1+m_2}g$
-\end{tasks}
-
-
-\item Consider the situation shown in figure. Both the pulleys $2\kg$ and the string are light and all the surfaces are smooth. The acceleration of $1 \kg$ block is
-\begin{center}
-\begin{tikzpicture}
-\def\ph{0.6}%pulley-height
-	\fill[pattern=north east lines](0, 0)--(8, 0)--(8, -3)--(7.75, -3)--(7.75, -0.25)--(0, -0.25)--cycle;
-	\draw[thick](0, 0)--(8, 0)--(8, -3);
-	\node[pulley] (pulley1) at (4, \ph){};
-	\node[pulley] (pulley2) at (8+\ph*cos{45}, \ph){};
-	\tzdot*(pulley1.center)
-	\node[block, scale=1.25] (block1) at (1, 0.5){$2\kg$};
-	\tzline(pulley1.center)(block1.10)
-	\tzline(pulley1.south)(pulley2.south)
-	
-	\tzline(pulley2.center)(8, 0)
-	\tzdot*(pulley2.center)
-	\node[block, scale=1.25] (block2) at (8+\ph*cos{45}+0.5, -2){$1\kg$};
-	\tzline(pulley2.east)(block2.north)
-	\tzline(pulley1.north)(pulley2.north)
-\end{tikzpicture}
-\end{center}
-\begin{tasks}(2)
-	\task $\dfrac{g}{3}\mpss$
-	\task $\dfrac{2g}{3}\mpss$\ans
-	\task $\dfrac{4g}{3}\mpss$
-	\task $\dfrac{6g}{3}\mpss$
-\end{tasks}
-
-\item Two bodies of mass $4\kg$ and $6\kg$ are tied to the ends of a massless string. The string passes over a pulley which is frictionless(see figure). The acceleration of the system in terms of acceleration due to gravity $g$ is
-\begin{center}
-\begin{tikzpicture}
-	\pic[yshift=1cm, rotate=180](hinge) {frame=2cm};
-	\node[pulley] (pulley1) at (0, 0){};
-	\tzline(hinge-center)(pulley1.center)
-	\tzdot*(pulley1.center)
-	\node[block] (block1)[below of=pulley1, xshift=-5mm]{$4\kg$};
-	\node[block] (block2)[below of=pulley1, xshift=5mm, yshift=-10mm]{$6\kg$};
+	\node[block, scale=1.25] (block1) at (-\ph-0.5, -2){$15\kg$};
+	\node[block, scale=1.25] (block3) at (0.5*\tl, 0.5){$5\kg$};
 	\tzline(pulley1.west)(block1.north)
-	\tzline(pulley1.east)(block2.north)
-\end{tikzpicture}
-\end{center}
-\begin{tasks}(2)
-	\task $\dfrac{g}{2}$
-	\task $\dfrac{g}{5}$\ans
-	\task $\dfrac{g}{10}$
-	\task $g$
-\end{tasks}
-
-\item This whole system of blocks is under gravity free space, then the normal reaction between the blocks is
-\begin{center}
-\begin{tikzpicture}
-	\pic {frame=5cm};
-	\node[block] (block1) at (0, 0.4){$2\kg$};
-	\node[block] (block2) [above of=block1, yshift=-1cm]{$1\kg$};
-\end{tikzpicture}
-\end{center}
-\begin{tasks}(2)
-	\task zero\ans
-	\task $10\N$
-	\task $20\N$
-	\task $30\N$
-\end{tasks}
-
-
-
-
-\item Find the relation between $a_1$, $a_2$ and $a_3$ where $a_1$, $a_2$ and $a_3$ are accelerations of the blocks $1$, $2$ and $3$.
-\begin{center}
-\begin{tikzpicture}
-\pic[yshift=1cm, rotate=180](hinge) {frame=2cm};
-	\node[lpulley] (pulley1) at (0, 0){};
-	\node[pulley] (pulley2)[below of=pulley1, xshift=6mm]{};
-	\node[block] (block1)[below of=pulley1, xshift=-6mm]{$1$};
-	\node[block] (block2)[below of=pulley2, xshift=-5mm]{$2$};
-	\node[block] (block3)[below of=pulley2, xshift=5mm]{$3$};
-	\tzline(hinge-center)(pulley1.center)
-	\tzdot*(pulley1.center)
-	\tzdot*(pulley2.center)
+	\tzline[-->--](block3.west)(pulley1.north)
+	\tzline[-->--](block3.east)(pulley2.north)
 	
-	\tzline(pulley1.west)(block1.north)
-	\tzline(pulley1.east)(pulley2.center)
-	\tzline(pulley2.west)(block2.north)
-	\tzline(pulley2.east)(block3.north)
-\end{tikzpicture}
-\end{center}
-\begin{tasks}(2)
-	\task $2a_1+a_2+a_3=0$\ans
-	\task $a_1+2a_2+a_3=0$
-	\task $a_1+a_2+2a_3=0$
-	\task $a_1+a_2+a_3=0$
-\end{tasks}
-
-\item In the figure shown, $a_3=6 \mpss$ (downwards) and $a_2=4\mpss$ (upwards). The acceleration of 1 is
-\begin{center}
-\begin{tikzpicture}
-\pic[yshift=1cm, rotate=180](hinge) {frame=2cm};
-	\node[lpulley] (pulley1) at (0, 0){};
-	\node[pulley] (pulley2)[below of=pulley1, xshift=6mm]{};
-	\node[block] (block1)[below of=pulley1, xshift=-6mm]{$1$};
-	\node[block] (block2)[below of=pulley2, xshift=-5mm]{$2$};
-	\node[block] (block3)[below of=pulley2, xshift=5mm]{$3$};
-	\tzline(hinge-center)(pulley1.center)
-	\tzdot*(pulley1.center)
+	\tzline(pulley2.center)(\tl, 0)
+	\tzline(pulley1.center)(0, 0)
 	\tzdot*(pulley2.center)
-	
-	\tzline(pulley1.west)(block1.north)
-	\tzline(pulley1.east)(pulley2.center)
-	\tzline(pulley2.west)(block2.north)
-	\tzline(pulley2.east)(block3.north)
-\end{tikzpicture}
-\end{center}
-\begin{tasks}(2)
-	\task $1\mpss \text{ downward}$
-	\task $2\mpss \text{ upward}$
-	\task $1\mpss \text{ upward}$\ans
-	\task $2\mpss \text{ downward}$
-\end{tasks}
-
-\item In the following system of blocks and pulley, the acceleration of the block of mass $2\kg$ is
-\begin{center}
-\begin{tikzpicture}
-	\fill[pattern=north east lines](0, 0)--(8, 0)--(8, -3)--(7.75, -3)--(7.75, -0.25)--(0, -0.25)--cycle;
-	\draw[thick](0, 0)--(8, 0)--(8, -3);
-	\node[pulley] (pulley1) at (1.5, 0.9){};
-	\tzline+(pulley1.center)(0, -0.9)
-	\tzdot*(pulley1.center)
-	\node[block] (block1) at (4, 0.4){$1\kg$};
-	\tzline(pulley1.south)(block1.west)
-	\node[block] (block3) [right of=block1]{$3\kg$};
-	\tzline(block1.east)(block3.west);
-	
-	\node[pulley] (pulley2) at (8+0.9*cos{45}, 0.9){};
-	\tzline(pulley2.center)(8, 0)
-	\tzdot*(pulley2.center)
-	\node[block] (block2) at (8+0.9*cos{45}+0.5, -2){$2\kg$};
+	\node[block, scale=1.25] (block2) at (\tl+\ph+0.5, -2){$5\kg$};
 	\tzline(pulley2.east)(block2.north)
-	\tzline(pulley1.north)(pulley2.north)
 \end{tikzpicture}
 \end{center}
 \begin{tasks}(2)
-	\task $\dfrac{10}{6}\mpss$
-	\task $\dfrac{20}{6}\mpss$\ans
-	\task $\dfrac{30}{6}\mpss$
-	\task $\dfrac{40}{6}\mpss$
+	\task $17:24$\ans
+	\task $34:12$
+	\task $2:3$
+	\task $3:2$
 \end{tasks}
 
-\item A mass of $1\kg$ is suspended by a thread. It is lifted up with an acceleration of $5\mpss$ and then it is lowered down with an acceleration of $5\mpss$. Then the ratio of tensions in the string for the both cases is
-\begin{center}
-\begin{tikzpicture}
-\node[block] (block1) at (0, 0){$1\kg$};
-\tzline+[->](block1.north)(0, 1)
-\end{tikzpicture}
-\end{center}
+
+\item To mop-clean a floor, a cleaning machine presses a circular mop of radius $R$ vertically down with a total force $F$ and rotates it with a constant angular speed about its axis. If the force $F$ is distributed uniformly over the mop and if coefficient of friction between the mop and the floor is $\mu$, the torque applied by the machine on the mop in $(\N\m)$ is
 \begin{tasks}(2)
-	\task $3:1$\ans
-	\task $1:3$
-	\task $1:2$
-	\task $2:1$
+	\task $\dfrac{2}{3}\mu FR$\ans
+	\task $\dfrac{1}{6}\mu FR$
+	\task $\dfrac{1}{3}\mu FR$
+	\task $\dfrac{1}{2}\mu FR$
 \end{tasks}
 
-\item Which of the following is the correct pair for the acceleration of either blocks and the tension in the string shown in figure. The pulley and the string are light and all surfaces are smooth.
-\begin{center}
-\begin{tikzpicture}
-	\fill[pattern=north east lines](0, 0)--(8, 0)--(8, -3)--(7.75, -3)--(7.75, -0.25)--(0, -0.25)--cycle;
-	\draw[thick](0, 0)--(8, 0)--(8, -3);
-	\node[pulley] (pulley1) at (2, 0.9){};
-	\tzline+(pulley1.center)(0, -0.9)
-	\tzdot*(pulley1.center)
-	\node[block] (block1) at (4.5, 0.4){$M$};
-	\tzline(pulley1.south)(block1.west)
-	
-	\node[pulley] (pulley2) at (8+0.9*cos{45}, 0.9){};
-	\tzline(pulley2.center)(8, 0)
-	\tzdot*(pulley2.center)
-	\node[block] (block2) at (8+0.9*cos{45}+0.5, -2){$M$};
-	\tzline(pulley2.east)(block2.north)
-	\tzline(pulley1.north)(pulley2.north)
-\end{tikzpicture}
-\end{center}
+\item A particle of mass $m$ is moving in a straight line with momentum $p$. Starting at time $t = 0$, a force $F = kt$ acts in the same direction on the moving particle during time interval $T$ , so that its momentum changes from $p$ to $3p$. Here, $k$ is a constant. The value of $T$ is
 \begin{tasks}(2)
-	\task $\dfrac{g}{2}, \dfrac{Mg}{2}$\ans
-	\task $\dfrac{g}{3}, \dfrac{Mg}{3}$
-	\task $\dfrac{g}{2}, \dfrac{Mg}{3}$
-	\task $\dfrac{g}{3}, \dfrac{Mg}{2}$
+	\task $\sqrt{\dfrac{2p}{k}}$
+	\task $2\sqrt{\dfrac{p}{k}}$\ans
+	\task $\sqrt{\dfrac{2k}{p}}$
+	\task $2\sqrt{\dfrac{k}{p}}$
 \end{tasks}
 
-\item What would be the normal reaction between the block of mass $2\kg$ and $1\kg$ in the given figure?
-\begin{center}
-\begin{tikzpicture}
-	\pic {frame=5cm};
-	\node[block] (block1) at (0, 0.4){$2\kg$};
-	\node[block] (block2) [above of=block1, yshift=-1cm]{$1\kg$};
-\end{tikzpicture}
-\end{center}
-\begin{tasks}(2)
-	\task $20\N$
-	\task $30\N$
-	\task $10\N$\ans
-	\task None of these
-\end{tasks}
-
-\item Two blocks of masses $2 \kg$ and $4 \kg$ are released from rest over a smooth inclined plane of
-inclination $30^\circ$ as shown in figure. What is the normal force between the two blocks?
+\item A block kept on a rough inclined plane, as shown in the figure, remains at rest upto a maximum force $2 \N$ down the inclined plane. The maximum external force up the inclined plane that does not move the block is $10 \N$. The coefficient of static friction between the block and the plane is (Take, $g = 10 \mpss$)
 \begin{center}
 \begin{tikzpicture}
 	\pic[xshift=1cm] (0, 0) {frame=8cm};
 	\tzcoors(0, 0)(A)(3, 0)(B)(0,3)(C);
 	\tzpolygon(A)(B)(C);
 	\tzanglemark(C)(B)(A){$30^\circ$}(15pt)
-	\node[block, yshift=4mm, rotate around={-45:(B)}] (box1) at (0, 0) {$2\kg$};
-	\node[block, rotate=-45] (box2) [right of=box1, xshift=-9.7mm]{$4\kg$};
+	\node[block, yshift=4mm, rotate around={-45:(B)}] (box1) at (0, 0) {};
+	\tzline+[->] (box1.east)(1*cos{45}, -1*sin{45}){$2\N$}[b]
+	\tzline+[->, dashed] (box1.west)(-1*cos{45}, 1*sin{45}){$10\N$}[a]
 \end{tikzpicture}
 \end{center}
 \begin{tasks}(2)
-	\task $10\N$
-	\task $20\N$
-	\task $5\N$
-	\task Zero\ans
+	\task $\dfrac{2}{3}$
+	\task $\dfrac{\sqrt{3}}{2}$\ans
+	\task $\dfrac{\sqrt{3}}{4}$
+	\task $\dfrac{1}{2}$
 \end{tasks}
 
-\item Two unequal masses of $1 \kg$ and $2 \kg$ are connected by an inextensible light string passing over a smooth pulley as shown in figure. A force $F = 20 \N$ is applied on $1 \kg$ block. The acceleration of the either block is 
-\begin{center}
-\begin{tikzpicture}
-\tzcoor(0, 0)(O)
-	\pic[yshift=10mm,rotate=180] (hinge){frame=2cm};
-	\node[pulley] (pulley1) at (O){};
-	\node[block] (box1) [below of=pulley1, xshift=-5mm] {$1\kg$};
-	\node[block] (box2) [below of=pulley1, xshift=5mm, yshift=-5mm] {$2\kg$};
-	\tzdot*(pulley1.center)
-	\tzline(hinge-center)(pulley1.center)
-	\tzline(pulley1.west)(box1.north)
-	\tzline(pulley1.east)(box2.north)
-	\tzline+[->](box1.south)(0, -1){$F$}[b]
-\end{tikzpicture}
-\end{center} 
+
+\item A mass of $10 \kg$ is suspended vertically by a rope from the roof. When a horizontal force is applied on the mass, the rope deviated at an angle of $45^\circ$ at the roof point. If the suspended mass is at equilibrium, the magnitude of the force applied is
 \begin{tasks}(2)
-	\task $\dfrac{10}{3}\mpss$\ans
-	\task $\dfrac{20}{3}\mpss$
-	\task $\dfrac{30}{3}\mpss$
-	\task $\dfrac{40}{3}\mpss$
+	\task $70\N$
+	\task $200\N$
+	\task $100\N$\ans
+	\task $140\N$
 \end{tasks}
 
-\item Two blocks of masses $4 \kg$ and $2 \kg$ are placed side by side on a smooth horizontal surface as shown in the figure. A horizontal force of $20 \N$ is applied on $4 \kg$ block. Then, the normal reaction between them is
-\begin{center}
-\begin{tikzpicture}
-\tzcoor(0, 0)(O)
-	\pic[yshift=-4.3mm] at (O) {frame=6cm};
-	\node[block] (box1) at (O) {$4\kg$};
-	\node[block] (box2) [right of=box1, xshift=-9.7mm] {$2\kg$};
-	\tzline+[<-](box1.west)(-1.5, 0){$20\N$}[midway, a]
-\end{tikzpicture}
-\end{center} 
+
+\item A block of mass m is placed on a surface with
+a vertical cross-section given by $y = x^3 / 6$. If
+the coefficient of friction is $0.5$, the maximum height above the ground at which the block can be placed without slipping is
 \begin{tasks}(2)
-	\task $\dfrac{20}{3}\N$\ans
-	\task $\dfrac{30}{3}\N$
-	\task $\dfrac{10}{3}\N$
-	\task $\dfrac{40}{3}\N$
+	\task $\dfrac{1}{6}\m$\ans
+	\task $\dfrac{2}{3}\m$
+	\task $\dfrac{1}{3}\m$
+	\task $\dfrac{1}{2}\m$
 \end{tasks}
 
-\item Three blocks of masses $3 \kg$, $2 \kg$ and $1 \kg$ are placed side by side on a smooth surface as shown in figure. A horizontal force of $12 \N$ is applied on $3 \kg$ block. The net force on $2 \kg$ block is
-\begin{center}
-\begin{tikzpicture}
-\tzcoor(0, 0)(O)
-	\pic[yshift=-4.3mm, xshift=5mm] at (O) {frame=7cm};
-	\node[block] (box1) at (O) {$3\kg$};
-	\node[block] (box2) [right of=box1, xshift=-9.7mm] {$2\kg$};
-	\node[block] (box3) [right of=box2, xshift=-9.7mm] {$1\kg$};
-	\tzline+[<-](box1.west)(-1.5, 0){$12\N$}[midway, a]
-\end{tikzpicture}
-\end{center} 
+\item The minimum force required to start pushing a body up a rough (frictional coefficient $\mu$) inclined plane is $F_1$ while the minimum force needed to prevent it from sliding down is $F_2$. If the inclined plane makes an angle $\theta$ from the horizontal such
+that $\tan\theta = 2\mu$, then the ratio $\dfrac{F_1}{F_2}$ is
 \begin{tasks}(2)
-	\task $2\N$
-	\task $3\N$
-	\task $4\N$\ans
-	\task $5\N$
+	\task $4$
+	\task $1$
+	\task $2$
+	\task $3$\ans
 \end{tasks}
 
-\item The surface is frictionless, the ratio between $T_1$ and $T_2$ is
+\item A block of mass m is connected to another
+block of mass $M$ by a spring (massless) of spring constant $k$ . The blocks are kept on a smooth horizontal plane. Initially the blocks are at rest and the spring is unstretched. Then, a constant force $F$ starts acting on the block of mass $M$ to pull it. Find the force on the block of mass $m$.
+\begin{tasks}(2)
+	\task $\dfrac{mF}{M}$
+	\task $\dfrac{(M+m)F}{m}$
+	\task $\dfrac{mF}{m+M}$\ans
+	\task $\dfrac{MF}{m+M}$
+\end{tasks}
+
+\item A mass of $M \kg$ is suspended by a weightless
+string. The horizontal force that is required
+to displace it until the string makes an angle
+of $45^\circ$ with the initial vertical direction is
+\begin{tasks}(2)
+	\task $Mg(\sqrt{2} + 1)$
+	\task $Mg\sqrt{2}$
+	\task $\dfrac{Mg}{\sqrt{2}}$
+	\task $Mg(\sqrt{2}-1)$\ans
+\end{tasks}
+
+\item Consider a car moving on a straight road with a speed of $100 \mps$. The distance at which car can be stopped, is [$\mu_k = 0.5$]
+\begin{tasks}(2)
+	\task $800\m$
+	\task $1000\m$\ans 
+	\task $100\m$
+	\task $400\m$
+\end{tasks}
+
+\item A smooth block is released at rest on a $45^\circ$ incline and then slides a distance $d$.The time taken to slide is $n$ times as much to slide on rough incline than on a smooth incline. The coefficient of friction is
+\begin{tasks}(2)
+	\task $\mu_k=1-\dfrac{1}{n^2}$\ans
+	\task $\mu_k=\sqrt{1-\dfrac{1}{n^2}}$
+	\task $\mu_s=1-\dfrac{1}{n^2}$
+	\task $\mu_s=\sqrt{1-\dfrac{1}{n^2}}$
+\end{tasks}
+
+\item The upper half of an inclined plane with inclination $\theta$ is perfectly smooth, while the lower half is rough. A body starting from rest at the top will again come to rest at the bottom, if the coefficient of friction for the lower half is given by
+\begin{tasks}(2)
+	\task $2\sin\theta$
+	\task $2\cos\theta$
+	\task $2\tan\theta$\ans
+	\task $\tan\theta$
+\end{tasks}
+
+\item A block rests on a rough inclined plane making an angle of $30^\circ$ with the horizontal. The coefficient of static friction between the block and the plane is $0.8$. If the frictional force on the block is $10 \N$, the mass of the block (in $\kg$) is ( $g = 10 \mpss$)
+\begin{tasks}(2)
+	\task $2.0$\ans
+	\task $4.0$
+	\task $1.6$
+	\task $2.5$
+\end{tasks}
+
+\item A marble block of mass $2 \kg$ lying on ice when given a velocity of $6\mps$ is stopped by friction in $10 \s$. Then, the coefficient of friction is
+\begin{tasks}(2)
+	\task $0.02$
+	\task $0.03$
+	\task $0.06$\ans
+	\task $0.01$
+\end{tasks}
+
+\item A block of mass $M$ is pulled along a horizontal frictionless surface by a rope of mass $m$. If a force $P$ is applied at the free end of the rope, the force exerted by the rope on the block is
+\begin{tasks}(2)
+	\task $\dfrac{Pm}{M+m}$
+	\task $\dfrac{Pm}{M-m}$
+	\task $P$
+	\task $\dfrac{PM}{M+m}$\ans
+\end{tasks}
+
+\item A light string passing over a smooth light pulley connects two blocks of masses $m_1$ and $m_2$ (vertically). If the acceleration of the system is $g/8$,then the ratio of the masses is
+\begin{tasks}(2)
+	\task $8:1$
+	\task $9:7$\ans
+	\task $4:3$
+	\task $5:3$
+\end{tasks}
+
+\item Three identical blocks of masses $m = 2 \kg$ are drawn by a force $F=10.2 \N$ with an acceleration of $0.6 \mpss$ on a frictionless surface, then what is the tension (in $\N$) in the string between the blocks $B$ and $C$ ?
 \begin{center}
 \begin{tikzpicture}
 \pic (surface) {frame=9cm};
-	\node[block, yshift=4mm] (block1) at (surface-center){$12\kg$};
-	\node[block] (block2) [right of=block1]{$15\kg$};
-	\node[block] (block3) [left of=block1]{$3\kg$};
-	\tzline(block3.east)(block1.west){$T_1$}[midway, a]
-	\tzline(block1.east)(block2.west){$T_2$}[midway, a]
-	\tzline[->]"force"(block2.east)([turn]30:2)
-	\tzvXpointat{force}{3}(A)
-	%\tzdot*(A)
-	\tzline+[dashed]"dashedline"(block2.east)(2, 0)
-	\tzvXpointat{dashedline}{3}(B)
-	%\tzdot*(B)
-	\tzanglemark(B)(block2.east)(A){$30^\circ$}(16pt)
+	\node[block, yshift=4mm] (block1) at (surface-center){$B$};
+	\node[block] (block2) [right of=block1]{$A$};
+	\node[block] (block3) [left of=block1]{$C$};
+	\tzline[-->--=0.5](block3.east)(block1.west)
+	\tzline[-->--=0.5](block1.east)(block2.west)
+	\tzline+[->](block2.east)(1.5, 0){$F$}[r]
 \end{tikzpicture}
 \end{center}	
 \begin{tasks}(2)
-	\task $\sqrt{3}:1$
-	\task $1:\sqrt{3}$
-	\task $1:5$\ans
-	\task $5:1$
+	\task $9.2$
+	\task $7.8$\ans
+	\task $4$
+	\task $9.8$
 \end{tasks}
 
-
-\item In the arrangement shown in figure, the ratio of tensions in the strings attached with $4 \kg$ block and that with $1 \kg$ block is
-\begin{center}
-\begin{tikzpicture}
-\tzcoor(0, 0)(O)
-	\pic[yshift=10mm,rotate=180] (hinge){frame=2.5cm};
-	\node[pulley] (pulley1) at (O){};
-	\node[block] (box1) [below of=pulley1, xshift=-5mm] {$4\kg$};
-	\node[block] (box2) [below of=pulley1, xshift=5mm, yshift=-5mm] {$3\kg$};
-	\node[block] (box3) [below of=box2]{$1\kg$};
-	\tzline(box2.south)(box3.north)
-	\tzdot*(pulley1.center)
-	\tzline(hinge-center)(pulley1.center)
-	\tzline(pulley1.west)(box1.north)
-	\tzline(pulley1.east)(box2.north)
-\end{tikzpicture}
-\end{center} 
+\item When forces $F_1$ , $F_2$ , $F_3$ are acting on a particle
+of mass $m$ such that $F_2$ and $F_3$ are mutually perpendicular, then the particle remains stationary. If the force $F_1$ is now removed, then the acceleration of the particle is
 \begin{tasks}(2)
-	\task $2:1$
-	\task $4:1$\ans
-	\task $1:2$
-	\task $1:4$
+	\task $\dfrac{F_1}{m}$\ans
+	\task $\dfrac{F_2F_3}{mF_1}$
+	\task $\dfrac{F_2-F_3}{m}$
+	\task $\dfrac{F_2}{m}$
 \end{tasks}
-	
 
-\item Find the relation between $a_1$ and $a_2$ .
+\item A block of mass $10\kg$ is kept on a rough inclined plane as shown in the figure. A force of $3 \N$ is applied on the block. The coefficient of static friction between the plane and the block is $0.6$. What should be the minimum value of force $F$ , such that the block does not move downward ?
 \begin{center}
 \begin{tikzpicture}
-	\pic[yshift=10mm,rotate=180] (topsurface){frame=4cm};
-	\node[pulley, yshift=-15mm] (pulley1) at (topsurface-center){};
-	\node[pulley, xshift=5mm] (pulley2) [below of=pulley1] {};
-	\node[pulley, xshift=5mm] (pulley3) [below of=pulley2] {};
-	\node[block, xshift=5mm] (block1) [below of=pulley3] {$2$};
-	\tzline(topsurface-center)(pulley1.center)
-	\tzdots*(pulley1.center) (pulley2.center) (pulley3.center);
-	\tzline(pulley1.east)(pulley2.center)
-	\tzline(pulley2.east)(pulley3.center)
-	\tzline(pulley3.east)(block1.north)
-	\node[plank, yshift=-50mm] (plank1)[below of=pulley1]{$1$};
-	\tzline+(pulley1.west)(0, -5 - 1.4)
-	\tzline+(pulley2.west)(0, -5 + 0.4)
-	\tzline+(pulley3.west)(0, -5 + 2.2)
+	\pic[xshift=1cm] (0, 0) {frame=8cm};
+	\tzcoors(0, 0)(A)(3, 0)(B)(0,3)(C);
+	\tzpolygon(A)(B)(C);
+	\tzanglemark(C)(B)(A){$45^\circ$}(15pt)
+	\node[block, yshift=4mm, rotate around={-45:(B)}] (box1) at (0, 0) {$10\kg$};
+	\tzline+[->] (box1.east)(1*cos{45}, -1*sin{45}){$3\N$}[b]
+	\tzline+[->] (box1.west)(-1*cos{45}, 1*sin{45}){$F$}[a]
 \end{tikzpicture}
 \end{center}
 \begin{tasks}(2)
-	\task $a_1+7a_2=0$
-	\task $7a_1+a_2=0$\ans
-	\task $3a_1+a_2=0$
-	\task $a_1+3a_2=0$
+	\task $32\N$\ans
+	\task $25\N$
+	\task $23\N$
+	\task $18\N$
+\end{tasks}
+
+\item A block of mass m is placed at rest on a horizontal rough surface with angle of friction $\phi$. The block is pulled with a force $F$ at an angle $\theta$ with the horizontal. The minimum value of $F$ required to move the block is
+\begin{tasks}(2)
+	\task $\dfrac{mg\sin\phi}{\cos(\theta-\phi)}$\ans
+	\task $\dfrac{mg\cos\phi}{\cos(\theta-\phi)}$
+	\task $mg\tan\phi$
+	\task $mg\sin\phi$
 \end{tasks}
 
 
-	
-\item Find the force exerted by $5 \kg$ block on floor of lift, as shown in figure. (Take, $g =10\mpss$)	
+\end{enumerate}
+
+
+
 \begin{center}
-\begin{tikzpicture}
-\node[lift] (lift) at (0, 0){};
-\node[Hblock, yshift=6 mm] (block1) at (lift.south){$5\kg$};
-\node[hblock, yshift=6 mm] (block2) at (block1.north){$2\kg$};
-\tzline+[->](3.5, -2.5)(0, 3){$5\mpss$}[a]
-\end{tikzpicture}
+\textbf{Section-B\\(Numerical Answer Type)}
+
+{\flushleft{This section contains 10 questions. The answer to each question is a NUMERICAL VALUE. For each question, enter the correct numerical value (in decimal notation, truncated/rounded-off to the second decimal place).}}\\
+
+\textbf{Do any 5 questions out of 10 Questions.}
+
+\rule{\textwidth}{1 pt}
 \end{center}
-\begin{tasks}(2)
-	\task $100\N$
-	\task $115\N$
-	\task $105\N$\ans
-	\task $135\N$
-\end{tasks}
-	
-\item In the pulley-block arrangement shown in figure, find relation between $a_A$ , $a_B$ and $a_C$ .
-\begin{center}
-\begin{tikzpicture}
-\tzcoor(0, 0)(O)
-	\pic[yshift=10mm,rotate=180] (hinge){frame=3cm};
-	\node[pulley] (pulley1) at (O){};
-	\node[block] (box1) [below of=pulley1, xshift=-5mm] {$A$};
-	\node[pulley, xshift=5mm, yshift=-10mm] (pulley2) [below of=pulley1]{};
-	\node[block] (box2) [below of=pulley2, xshift=5mm] {$C$};
-	\node[block] (box3) [below of=pulley2, xshift=-5mm, yshift=-5mm]{$B$};
-	\tzline(pulley2.west)(box3.north)
-	\tzline(pulley2.east)(box2.north)
-	\tzdot*(pulley1.center)
-	\tzline(hinge-center)(pulley1.center)
-	\tzline(pulley1.west)(box1.north)
-	\tzline(pulley1.east)(pulley2.center)
-	\tzdot*(pulley2.center)
-\end{tikzpicture}
-\end{center} 
-\begin{tasks}(2)
-	\task $2a_A+a_B+a_C=0$\ans
-	\task $a_A+a_B+a_C=0$
-	\task $a_A+2a_B+a_C=0$
-	\task $a_A+a_B+2a_C=0$
-\end{tasks}
-	
-\item Problems of non-intertial frames can be solved only with the concept of pseudo force.
-\begin{tasks}(1)
-	\task Above statement is wrong\ans
-	\task Above statement is right
-	\task Can't say anything
-	\task Above statement is right for some cases and wrong for some cases
-\end{tasks}
-	
 
-\item A particle is moving such that $s=t^3-6t^2+18t$, where $s$ is in metre and $t$ is in second. The minimum velocity attained by the particle is
-\begin{tasks}(2)
-	\task $29 m/s$
-	\task $5 m/s$
-    \task $6 m/s$ \ans
-    \task $12 m/s$
-\end{tasks}
 
-\item A projectile is projected with speed u at an angle of $60^\circ$ with horizontal from the foot of an inclined plane. If the projectile hits the inclined plane horizontally, the range on inclined plane will be
-\begin{tasks}(2)
-	\task $\dfrac{u^2\sqrt{21}}{2g}$
-	\task $\dfrac{3u^2}{4g}$
-	\task $\dfrac{u^2}{2g}$
-	\task $\dfrac{u^2\sqrt{21}}{8g}$\ans
-\end{tasks}
-            
-            
-\item A particle starts from the origin of coordinates at time $t = 0$ and moves in the $xy$ plane with a constant acceleration $\alpha$ in the $y$-direction. Its equation of motion is $y = \beta x^2$. Its velocity
-component in the $x$-direction is  
-\begin{tasks}(2)
-	\task variable
-	\task $\sqrt{\dfrac{2\alpha}{\beta}}$
-	\task $\dfrac{\alpha}{2\beta}$
-	\task $\sqrt{\dfrac{\alpha}{2\beta}}$\ans
-\end{tasks}          
-         
-\item A particle is dropped from a height $h$. Another particle which is initially at a horizontal distance $d$ from the first is simultaneously projected with a horizontal velocity u and the two particles just collide on the ground. Then   
-\begin{tasks}(2)
-	\task $d^2=\dfrac{u^2h}{2h}$
-	\task $d^2=\dfrac{2u^2h}{g}$\ans
-	\task $d=h$
-	\task $gd^2=u^2h$
-\end{tasks}
-            
-            
-\item At a height of $15 \m$ from ground velocity of a projectile is $\vec{v} = (10 \hat{i} + 10\hat{j})$. Here, $\hat{j}$ is vertically upwards and $\hat{i}$ is along horizontal direction then ($g = 10 \mpss$)
-\begin{tasks}(1)
-	\task particle was projected at an angle of $45^\circ$ with horizontal
-	\task time of flight of projectile is $4 \s$\ans
-	\task horizontal range of projectile is $100 \m$
-	\task maximum height of projectile from ground is $20 \m$\ans
-\end{tasks}
+\begin{enumerate}
+\item A thin rod of length $1 \m$ is fixed in a vertical position inside a train, which is moving horizontally with constant acceleration $4 \mpss$. A bead can slide on the rod and friction
+coefficient between them is $0.5$. If the bead is released from rest at the top of the rod, it will reach the bottom in time $t$ then the value of $2t$ is
+\ansit{1}
 
-\item A particle moves in a circle of radius $R$ from $A$ to $B$ as shown in figure in $1\s$. The average speed of the particle is
-    \begin{center}
-        \begin{tikzpicture}[scale=2]
-            \coordinate (A) at (0.707, 0.707);
-            \coordinate (B) at (-0.707, 0.707);
-        
-            \tzarc (0, 0)(135:405:1)
-            \tzarc (0, 0)(45:135:0.2)
-            \tzdot*(A)
-            \tzarc[->](0, 0)(45:135:1)
-            \tzlines*[dashed](B)(0, 0){$R$}[black, r](A);
-            \node at (A)[above=2mm]{$A$};
-            \node at (B)[above=2mm]{$B$};
-            \node at (0,0)[above=5mm]{$\dfrac{\pi}{2}$};
-        \end{tikzpicture}
-    \end{center}
-    \begin{tasks}(2)
-    		\task $\dfrac{\pi R}{2}$\ans
-        \task $\dfrac{\pi}{2R}$
-        \task $\sqrt{2}R$
-        \task none of these
-    \end{tasks}
+\item A uniform cube of mass $m$ and side $a$ is resting in equilibrium on a rough $45^\circ$ inclined surface. The distance of the point of application of normal reaction measured from the lower edge of the cube is \ansit{0}
 
-\item The velocity of a particle depends on time $t$ as $v=t-1$, finds the displacement covered by the particle during $t=1$ to $t=3$ seconds.
-    \begin{center}
-        \begin{tikzpicture}[cap=round, scale=0.6]
-            %\tzaxes[->](-1, -1)(5, 5)
-            \draw[->] (-1, 0)--(5, 0)node[right]{$t$};
-            \draw[->] (0, -2)--(0, 4)node[left]{$v$};
-            \draw (0, -1)--(4, 3);
-            \node at (1, 0) [below]{$1$};
-            \node at (3, 0) [below]{$3$};
-            \draw[dashed] (3, 0)--(3, 2);
-            \draw[dashed] (0, 2)node[left]{$2$}--(3, 2);
-        \end{tikzpicture}
-    \end{center}
+\item A block $A$ of mass $2 \kg$ rests on another block $B$ of mass $8 \kg$ which rests on a horizontal floor. The coefficient of friction between $A$ and $B$ is $0.2$ while that between $B$ and floor is $0.5$. When a horizontal force $F$ of $25 \N$ is applied on the block $B$, the force of friction between $A$ and $B$ is \ansit{0}
 
-\begin{tasks}(2)
-	\task $0$
-    \task $2 m$\ans
-    \task $-2 m$
-    \task None of these
-\end{tasks}
+\item A block $A$ of mass $4 \kg$ is kept on ground. The coefficient of friction between the block and the ground is $0.8$. The external force of magnitude $30 \N$ is applied parallel to the ground. The resultant force exerted by the ground on the block in newton is ($g = 10 \mpss$ ) \ansit{50}
 
-\item The motion of a particle is described by the equation $v=\alpha t$. $\alpha$ is a $+ve$ constant. The distance travelled by the particle in the first $4 s$ is
-    \begin{tasks}(2)
-    \task $4\alpha$
-    \task $12\alpha$
-    \task $6\alpha$
-    \task $8\alpha$ \ans
-    \end{tasks}
+\item A horizontal force of $10 \N$ is necessary to just
+hold a block stationary against a wall. The
+coefficient of friction between the block and
+the wall is $0.2$. The weight of the block is \ansit{2}
 
-\item The acceleration of particle varies with time as shown. Then the expression of $v$ as a function of time $t$ is
-\begin{center}
-\begin{tikzpicture}[scale=0.7]
-	\tzaxes(-1, -2.5)(4.5, 3.5){$t(\s)$}{$a(\mpss)$} 
-	\tzLFn(0,-2)(1, 0)[0:2.5]
-	\tzticks{1}{-2}
-\end{tikzpicture}
-\end{center}
-\begin{tasks}(2)
-	\task $v=t^2-2t$\ans
-	\task $v=t^2+2t$
-	\task $v=-t^2+2t$
-	\task $v=-t^2-2t$
-\end{tasks}
-            
+\item A block rests on a rough inclined plane making an angle of $30^\circ$ with the horizontal. The coefficient of static friction between the block and the plane is $0.8$. If the frictional force on the block is $10 \N$, the mass of the block (in $\kg$) is ( $g = 10 \mpss$)\ansit{2}
+
+\item A spring balance is attached to the ceiling of a lift. A man hangs his bag on the spring and the spring reads $49 \N$, when the lift is stationary. If the lift moves downward with an acceleration of $5 \mpss$, the reading of the spring balance will be \ansit{24}
+
+\item Two blocks of equal mass are stacked on top of each other on a horizontal plane, then the frictional force between them is \ansit{0}
+
+\item A block of mass $m$ is placed on a frictionless inclined plane, then the angle of repose is \ansit{0}
+
+\item A block of mass $m$ is placed on a frictionless horizontal plane, then the angle of friction is \ansit{0}
 	
 \end{enumerate}
 
