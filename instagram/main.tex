@@ -1,0 +1,125 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{v-laws-of-motion}
+\geometry{paperheight=5 in, paperwidth=5 in, top=10mm, bottom=15mm, left=10mm, right=15mm}
+
+\usepackage[utopia]{mathdesign}
+\pagenumbering{gobble}
+%\newcommand{\ans}{\textcolor{red!95}{\textit{\quad}}}
+%\def\ansit#1{\textcolor{red!95}{\quad}}
+\newcommand{\ans}{\textcolor{red!95}{\textit{\quad Ans.}}}
+\def\ansit#1{\textcolor{red!95}{\quad [ #1 ]}}
+
+\title{Instagram(Laws of Motionf)\\(Problems)\\01}
+
+\tikzstyle test-paper=[>=latex, thick]
+\tikzset{
+>=latex
+}
+
+\def\surface#1{
+	\fill[pattern=north east lines](0, 0)--(8, 0)--(8, -3)--(7.75, -3)--(7.75, -0.25)--(0, -0.25)--cycle;
+	\draw[thick](0, 0)--(8, 0)--(8, -3);
+	}
+
+\tikzstyle{block}=[rectangle,draw, thick, minimum size=8mm, node distance=1.6cm]
+\tikzstyle{pulley}=[circle,draw, thick, minimum size=10mm, node distance=2cm]
+
+\tikzstyle{sblock}=[rectangle,draw, thick, minimum size=8mm, node distance=1.8cm]
+\tikzstyle{spulley}=[circle,draw, thick, minimum size=8mm, node distance=1.6cm]
+
+\tikzstyle{lblock}=[rectangle,draw, thick, minimum size=12mm, node distance=1.8cm]
+\tikzstyle{lpulley}=[circle,draw, thick, minimum size=12mm, node distance=2cm]
+
+\tikzstyle{hblock}=[rectangle,draw, thick, minimum height=12mm, minimum width=20mm, node distance=1.8cm]
+\tikzstyle{Hblock}=[rectangle,draw, thick, minimum height=12mm, minimum width=24mm, node distance=1.8cm]
+\tikzstyle{lift}=[rectangle,draw, thick, minimum height=60mm, minimum width=50mm, node distance=1.8cm]
+
+\tikzstyle{Bpulley}=[circle,draw, thick, minimum size=20mm, node distance=1.8cm]
+
+\tikzstyle{plank}=[rectangle,draw, thick, minimum height=8mm, minimum width=50mm, node distance=1.8cm]
+
+
+
+\begin{document}
+\maketitle
+
+\pagebreak
+
+\begin{center}
+\texttt{Laws of Motion}
+\end{center}
+
+\begin{enumerate}
+\item[01.] Hello this a problem from laws of motion. Three blocks are connected through strings and pulleys as shown in figure. Find the acceleration of the system.
+
+\begin{center}
+\begin{tikzpicture}
+\def\ph{0.75}%pulley-height
+\def\tl{6}%table-length
+	\fill[pattern=north east lines](0, -3)--(0, 0)--(\tl, 0)--(\tl, -3)--(\tl - 0.25, -3)--(\tl - 0.25, -0.25)--(0.25, -0.25)--(0.25, -3)--(0, -3)--cycle;
+	\draw[thick](0, -3)--(0, 0)--(\tl, 0)--(\tl, -3);
+	\node[pulley] (pulley1) at (-\ph, 0){};
+	\node[pulley] (pulley2) at (\tl+\ph, 0){};
+	\tzdot*(pulley1.center)
+	\node[block, scale=1.25] (block1) at (-\ph-0.5, -2){$15\kg$};
+	\node[block, scale=1.25] (block3) at (0.5*\tl, 0.5){$5\kg$};
+	\tzline(pulley1.west)(block1.north)
+	\tzline[-->--](block3.west)(pulley1.north)
+	\tzline[-->--](block3.east)(pulley2.north)
+	
+	\tzline(pulley2.center)(\tl, 0)
+	\tzline(pulley1.center)(0, 0)
+	\tzdot*(pulley2.center)
+	\node[block, scale=1.25] (block2) at (\tl+\ph+0.5, -2){$5\kg$};
+	\tzline(pulley2.east)(block2.north)
+\end{tikzpicture}
+\end{center}
+\begin{tasks}(2)
+	\task $9.2$
+	\task $7.8$\ans
+	\task $4$
+	\task $9.8$
+\end{tasks}
+\end{enumerate}
+
+\pagebreak
+
+\begin{center}
+\begin{tikzpicture}
+\pic (surface) {frame=9cm};
+	\node[block, yshift=4mm] (block1) at (surface-center){$B$};
+	\node[block] (block2) [right of=block1]{$A$};
+	\node[block] (block3) [left of=block1]{$C$};
+	\tzline[-->--=0.5](block3.east)(block1.west)
+	\tzline[-->--=0.5](block1.east)(block2.west)
+	\tzline+[->](block2.east)(1.5, 0){$F$}[r]
+\end{tikzpicture}
+\end{center}	
+
+
+\begin{center}
+\begin{tikzpicture}
+	\pic[xshift=1cm] (0, 0) {frame=8cm};
+	\tzcoors(0, 0)(A)(3, 0)(B)(0,3)(C);
+	\tzpolygon(A)(B)(C);
+	\tzanglemark(C)(B)(A){$45^\circ$}(15pt)
+	\node[block, yshift=4mm, rotate around={-45:(B)}] (box1) at (0, 0) {$10\kg$};
+	\tzline+[->] (box1.east)(1*cos{45}, -1*sin{45}){$3\N$}[b]
+	\tzline+[->] (box1.west)(-1*cos{45}, 1*sin{45}){$F$}[a]
+\end{tikzpicture}
+\end{center}
+\begin{tasks}(2)
+	\task $32\N$\ans
+	\task $25\N$
+	\task $23\N$
+	\task $18\N$
+\end{tasks}
+
+
+
+
+
+
+
+\end{document}

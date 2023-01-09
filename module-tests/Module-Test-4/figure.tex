@@ -1,0 +1,15 @@
+    \begin{center}
+    \begin{tikzpicture}[test]
+        \def\Fx{0.5*(\x)^2-2}
+        \tzaxes[->](-1, -3)(5, 4){$t$}{$v$}
+        \tzfn"curve"\Fx[0:3.2]
+        \tzfnarea*[pattern=north east lines]{\Fx}[1:3]
+        \node at (3.2, 3.2)[right]{$v=t^2-2$};
+        \tzfnarealine[red]{curve}{1}{3}
+        \node at (1, 0)[above]{$1$};
+        \node at (3, 0)[below]{$3$};
+        \tzlines*[<-](1.5, -0.5)(1.5, -1)(1.5, -1.5){$A_1$}[below];
+        \tzline[<-](2.7, 1)(3.5, 1){$A_2$}[right]
+    \end{tikzpicture}
+    \end{center}
+

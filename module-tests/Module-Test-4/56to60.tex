@@ -1,0 +1,75 @@
+%1
+\item If the instantaneous velocity of a particle projected as shown in figure by $\Vec{v}=a\hat{i}+(b-ct)\hat{j}$. Where $a$, $b$ and $c$ are positive constants, the range on the horizontal plane will be
+\begin{center}
+\begin{tikzpicture}
+\pic[xshift=2.5cm, ] (0, 0) {frame=8cm};
+\tzparabola"curve"(0, 0)(2.5, 1.5)(5, 0);
+\tzvXpointat*{curve}{4.99}
+\tzvXpointat*{curve}{0.01}(PT)
+\tztangentat[->]{curve}{0.01}[0:0.8]{$\Vec{v}$}
+\tzanglemark[->](5, 0)(0, 0)(PT){$\theta$}[scale=0.8]
+\end{tikzpicture}
+\end{center}
+\begin{tasks}(2)
+    \task $\dfrac{2ab}{c}$\ans
+    \task $\dfrac{ab}{c}$
+    \task $\dfrac{ac}{b}$
+    \task $\dfrac{a}{2bc}$
+\end{tasks}
+
+%2
+\item A particle is projected from the ground at an angle $\theta$ with the horizontal with an initial speed $u$. Time after which velocity vector of the projectile is perpendicular to the initial velocity.
+\begin{center}
+\begin{tikzpicture}
+\def\tt{3.85}
+\def\t{0.01}
+\pic[xshift=2.5cm, ] (0, 0) {frame=8cm};
+\tzparabola"curve"(0, 0)(2.5, 1.5)(5, 0);
+\tzvXpointat*{curve}{4.99}
+\tzvXpointat*{curve}{0.01}(PT)
+\tztangentat[->]{curve}{\tt}[\tt:\tt+1]{$v$}
+\tztangentat[dashed]"TT"{curve}{\tt}[\t+1.5:\tt]
+\tztangentat[->]{curve}{\t}[\t:\t+0.6]{$v_0$}[l]
+\tztangentat[dashed]"T"{curve}{\t}[\t:\t+2.4]
+\tzXpoint{T}{TT}(X)
+\tzdot*(X)
+\tzvXpointat{curve}{\tt}(PTT)
+\tzvXpointat{curve}{\t}(PT)
+\tzdot*(PTT)
+\tzrightanglemark(PT)(X)(PTT){$90^\circ$}[scale=0.8]
+\tzanglemark[->](5, 0)(0, 0)(PT){$\theta$}[scale=0.8]
+\end{tikzpicture}
+\end{center}
+\begin{tasks}(2)
+    \task $\dfrac{u}{g\sin\theta}$\ans
+    \task $\dfrac{u}{g\cos\theta}$
+    \task $\dfrac{2u}{g\sin\theta}$
+    \task $2u\tan\theta$
+\end{tasks}
+
+%3
+\item A particle is projected from horizontal making an angle of $53^\circ$ with initial velocity of $100\mps$. The time taken by the particle to make angle $45^\circ$ from horizontal is
+\begin{tasks}(2)
+    \task $14\s$
+    \task $2\s$
+    \task Both $(a)$ and $(b)$\ans
+    \task None of these
+\end{tasks}
+
+%4
+\item A large number of bullets are fired in all directions with same speed $v$. What is the maximum area on the ground on which these bullets will spread?
+\begin{tasks}(2)
+    \task $\dfrac{\pi v^2}{g}$
+    \task $\dfrac{\pi v^4}{g^2}$\ans
+    \task $\dfrac{\pi^2v^4}{g^2}$
+    \task $\dfrac{\pi^2v^2}{g^2}$
+\end{tasks}
+
+%5
+\item A bomber plane moves horizontally with a speed of $500\mps$ and a bomb released from it, strikes the ground in $10\s$. Angle at which it strikes the ground will be (Take, $g=10\mpss$)
+\begin{tasks}(2)
+    \task $\tan^{-1}\left(\dfrac{1}{5}\right)$\ans
+    \task $\tan^{-1}\left(\dfrac{1}{2}\right)$
+    \task $\tan^{-1}\left(1\right)$
+    \task $\tan^{-1}\left(5\right)$
+\end{tasks}

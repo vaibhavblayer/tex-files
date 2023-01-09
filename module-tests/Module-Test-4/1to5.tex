@@ -1,0 +1,70 @@
+ \item The velocity of a projectile at the initial point $A$ is $(2\hat{i}+3\hat{j})\mps$. Its velocity (in $\mps$) at point $B$ is
+\begin{center}
+\begin{tikzpicture}
+\pic[xshift=2.5cm, ] (0, 0) {frame=8cm};
+\tzparabola"curve"(0, 0)(2.5, 1.5)(5, 0);
+\tzvXpointat*{curve}{4.99}(PTT)
+\tzvXpointat*{curve}{0.01}(PT)
+\tznode<-0.25, 0.25>(PT){$A$}
+\tznode<0.25, 0.25>(PTT){$B$}
+\tztangentat[->]{curve}{4.99}[4.5:5.5]{$v$}[br]
+\tztangentat[->]{curve}{0.01}[0:0.7]{$v_0$}
+\tzanglemark[->](5, 0)(0, 0)(PT){$\theta$}[scale=0.8]
+\end{tikzpicture}
+\end{center}
+\vspace*{-30mm}
+\begin{tasks}(2)
+    \task $-2\hat{i}-3\hat{j}$
+    \task $-2\hat{i}+3\hat{j}$
+    \task $2\hat{i}-3\hat{j}$\ans
+    \task $2\hat{i}+3\hat{j}$
+\end{tasks}
+
+%2
+\item A body is projected with an angle $\theta$. The maximum height reached is $h$. If the time of flight is $4\s$ and $g=10\mpss$, then value of $h$ is
+\begin{center}
+\begin{tikzpicture}
+\pic[xshift=2.5cm, ] (0, 0) {frame=8cm};
+\tzparabola"curve"(0, 0)(2.5, 1.5)(5, 0);
+\tzvXpointat*{curve}{4.99}
+\tzvXpointat*{curve}{0.01}(PT)
+\tztangentat[->]{curve}{4.99}[4.5:5.5]{$v_0$}[br]
+\tztangentat[->]{curve}{0.01}[0:0.7]{$v_0$}
+\tzline[<->](2.5, 0)(2.5, 1.5){$h$}[midway, right, scale=0.8]
+\tzanglemark[->](5, 0)(0, 0)(PT){$\theta$}[scale=0.8]
+\end{tikzpicture}
+\end{center}
+\vspace*{-30mm}
+\begin{tasks}(2)
+    \task $40\m$
+    \task $20\m$\ans
+    \task $5\m$
+    \task $10\m$
+\end{tasks}
+
+%3
+\item The velocity vector of the motion described by the position vector of a particle $\vec{r}=2t\hat{i}+t^2\hat{j}$ is given by
+\begin{tasks}(2)
+    \task $\Vec{v}=2\hat{i}+2t\hat{j}$\ans
+    \task $\Vec{v}=2t\hat{i}+2t\hat{j}$
+    \task $\Vec{v}=t\hat{i}+t^2\hat{j}$
+    \task $\Vec{v}=2\hat{i}+t^2\hat{j}$
+\end{tasks}
+
+%4
+\item What is the range of a projectile thrown with velocity $98\mps$ with angle $30^\circ$ from horizontal ?
+\begin{tasks}(2)
+    \task $490\sqrt{3}\m$\ans
+    \task $245\sqrt{3}\m$
+    \task $980\sqrt{3}\m$
+    \task $100\m$
+\end{tasks}
+
+%5
+\item Two bullets are fired horizontally and simultaneously towards each other from roof tops of two buildings $100\m$ apart and of same height of $200\m$ with the same velocity of $25\mps$. When and where will the two bullets collides? (Take, $g=10\mpss$)
+\begin{tasks}(2)
+    \task After $2\s$ at a height of $180\m$\ans
+    \task After $2\s$ at a height of $180\m$\ans
+    \task After $4\s$ at a height of $120\m$
+    \task They will not collide
+\end{tasks}

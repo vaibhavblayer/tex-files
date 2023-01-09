@@ -1,0 +1,71 @@
+%1
+\item A man can row a boat $4 \kmph$ in still water. If he is crossing a river of width $4\km$ where the current is $2 \kmph$, and he wants to cross the river in shortest time. What would be the drift of the boat after reaching the other side of the river?
+\begin{tasks}(2)
+    \task $2\km$\ans
+    \task $4\km$
+    \task $6\km$
+    \task $8\km$
+\end{tasks}
+
+%2
+\item A man wants to reach point B on the opposite bank of a river flowing at a speed $u$ as shown in the figure. What minimum speed relative to water should the man have so that he can reach point B? In which direction should he swim?
+\begin{center}
+\begin{tikzpicture}[very thick]
+\draw (-1, 0)--(5, 0);
+\draw (-1, 2)--(5, 2);
+\draw[dotted] (1.5, 0)coordinate (b) node[below]{\textbf{A}}--(1.5, 2)coordinate (a);
+\draw (1.5, 0)--([turn]45:2.85) coordinate (c)node[above]{\textbf{B}};
+\draw [ultra thick]
+    pic[draw=black!85,angle radius=5 mm]
+    {angle=c--b--a};
+    \node at (1.90, 0.55)[above]{$45^\circ$};
+    
+    \draw[-Stealth](3.5,1)--(4.75, 1)node[midway, above]{$u$};
+\end{tikzpicture}
+\end{center}
+\begin{tasks}(2)
+    \task $v=\dfrac{u}{\sqrt{3}}$ at $\theta=45^\circ$
+    \task $v=\dfrac{u}{\sqrt{5}}$ at $\theta=45^\circ$
+    \task $v=\dfrac{u}{\sqrt{2}}$ at $\theta=45^\circ$\ans
+    \task None of these
+\end{tasks}
+
+%3
+\item If a boat can have a speed of $4 km/h$ in still water, for what values of speed of river flow, it can be managed to row the boat right across the river, without any drift?
+\begin{tasks}(2)
+\task $\geq 4 km/h$
+\task $> 0$ but $< 4 km/h$
+\task Only $4 km/h$
+\task None of these\ans
+\end{tasks}
+
+
+%4
+\item A river is flowing with the velocity of $2\sqrt{3} m/s$. A boat has to move from A to B. Find the minimum velocity of boat in still water.
+\begin{center}
+\begin{tikzpicture}
+\draw (-1, 0)--(5, 0)coordinate (a);
+\draw (-1, 2)--(5, 2);
+\draw (1.5, 0)coordinate (b)--([turn]45:2.85) coordinate (c)node[above]{\textbf{B}};
+\draw [ultra thick]
+    pic[draw=black!85,angle radius=5 mm]
+    {angle=a--b--c};
+    \node at (2.4, 0.40){$60^\circ$};
+    \draw[-Stealth](3.5,1)--(4.75, 1)node[midway, above]{$v_r=2\sqrt{3}$};
+\end{tikzpicture}
+\end{center}
+\begin{tasks}(2)
+    \task $3\mps$\ans
+    \task $4\mps$
+    \task $5\mps$
+    \task None of these
+\end{tasks}
+
+%5
+\item A boat is moving with velocity of $3\hat{i} + 4\hat{j}$ in river and water is moving with a velocity of $-3\hat{i} -4\hat{j}$ with respect to ground. Relative velocity of boat with respect to water is
+\begin{tasks}(2)
+\task $-6\hat{i} -8\hat{j}$
+\task $6\hat{i} +8\hat{j}$\ans
+\task $8\hat{i}$
+\task $6\hat{i}$
+\end{tasks}
