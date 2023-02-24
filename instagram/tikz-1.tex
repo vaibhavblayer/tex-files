@@ -1,0 +1,15 @@
+\begin{tikzpicture}
+	\tzaxes(-1, -0.5)(8, 4){$x$}{$y$}
+	\tzcoors(3,1.5)(A)(5,2)(B)(5.5,3)(C)(4.5,4)(D)(2.5,3)(E);
+	\tztos(A)[out=-30,in=210]
+         (B)[out=30,in=-90]
+         (C)[out=90,in=-30]
+         (D)[out=150,in=80]
+         (E)[out=-90,in=150]
+         (A);
+	
+	\tzcoors*(4, 2)(m1)(3.25, 2.5)(m2)(4.5, 3)(m3)(3.75, 3.5)(m4)(3, 3.25)(m5);
+	\foreach \x in {1,...,5}{
+		\tzline[->](0, 0){$\vec{r}_\x$}[midway, b](m\x){$m_\x$}[r]
+	};
+\end{tikzpicture}

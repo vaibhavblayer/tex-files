@@ -1,0 +1,8 @@
+\begin{tikzpicture}
+	\tzaxes(-2.5, -2.5)(5, 2.75){$x$}{$y$}
+	\filldraw[thick, pattern=north east lines, even odd rule] (0, 0)circle[radius=2] (1, 0) circle[radius=1];
+	
+	\tzline[|<->|]<0, 2.5>(0, 0)(2, 0){$r$}[midway,a]
+	\tzline[|<->|]<0, 1.8>(1, 0)(2, 0){$r/2$}[midway,a]
+	\tzdot*(1, 0)
+\end{tikzpicture}

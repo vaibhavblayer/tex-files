@@ -1,0 +1,6 @@
+center of mass ->
+	The point inside or outside of the body about which the net torque in a uniform force force is zero.
+
+
+center of mass ->
+	The point about which the mass moment of the system remains constant.
